@@ -20,8 +20,8 @@ if (!$_SESSION['logined']) {
     <div id="friends">
 
     </div>
-    <script src="assetss/jquery.js"></script>
-    <script src="assetss/friends.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/friends.js"></script>
 </body>
 
 </html>
