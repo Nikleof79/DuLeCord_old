@@ -1,0 +1,1 @@
+# In DB state username is UNCHANGEABLE and name can be changed by user

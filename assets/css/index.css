@@ -1,0 +1,269 @@
+body {
+  color: white;
+  overflow: hidden;
+}
+
+#pc-page {
+  width: 100vw;
+  height: 100vh;
+  background: rgb(15, 19, 53);
+  background: linear-gradient(
+    0deg,
+    rgba(26, 37, 137, 1) 16%,
+    rgba(15, 19, 53, 1) 100%
+  );
+} 
+
+.navbar{
+  padding: 0 !important;
+  height: 80px !important;
+}
+.navbar .container-fluid{
+  height: 100%;
+}
+.nav-round-btn{
+  aspect-ratio: 1/1;
+  border: transparent;
+  border-radius: 50%;
+  background-color: #fff;
+  /* height: 40px;
+  width: auto; */
+  padding: 0;
+}
+
+.nav-round-btn img{
+  height: 50px;
+  width: auto;
+}
+
+.navbar-brand{
+  /* <p>Chats<p> */
+  font-size: 50px !important;
+}
+
+#intercultor-avatar{
+  aspect-ratio: 1/1;
+  height: 50px;
+  margin-right: 5px;
+  border-radius: 50%;
+  display: block;
+}
+
+.navbar-nav{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+}
+
+main{
+  width: 100%;
+  height: 100%;
+  display: flex !important;
+}
+
+#messages{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  overflow: auto;
+}
+/* width */
+#messages::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+#messages::-webkit-scrollbar-track {
+  background: #00000000;
+}
+
+/* Handle */
+#messages::-webkit-scrollbar-thumb {
+  background: rgb(15, 19, 53);
+}
+
+/* Handle on hover */
+#messages::-webkit-scrollbar-thumb:hover {
+  background: rgb(61, 17, 63);
+}
+
+#around-textarea{
+  width: 100%;
+  height: 10%;
+}
+#textarea{
+  padding: 0;
+  background-color: #00000075;
+  height: 50px;
+  border-radius: 8px;
+  padding: 0;
+}
+
+#chatarea{
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.message{
+  display: block;
+  padding: .375rem;
+  padding-right: 1rem;
+  border: transparent;
+  border-radius: 50px;
+  width: max-content;
+  background-color: #00000059;
+  margin: 0.3rem;
+  margin-bottom: 0.5rem;
+  max-width: 65%;
+  text-wrap: wrap;
+}
+
+.messageByIntercultor{
+  align-self: flex-end;
+}
+.messageByMe{
+  align-self: flex-start;
+}
+
+.messageInner{
+  display: inline-block;
+  margin: 0;
+}
+
+.senderAvatar{
+  aspect-ratio: 1/1;
+  height: 50px;
+  position: relative;
+  top: 1rem;
+  right: 1rem;
+  margin-right: -0.5rem;
+  border-radius: 50%;
+  border: transparent;
+}
+
+
+
+#textarea-input{
+  resize: none;
+  background-color: transparent;
+  color: white;
+  height: 100%;
+  border: none;
+  width: 90%;
+  padding-top: 5px;
+  padding-left: 5px;
+}
+
+#textarea-input:focus{
+  outline: none;
+}
+
+
+#textarea-btns{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  float: right;
+  height: 100%;
+  width: 10%;
+}
+
+.textarea-btn-smile{
+  aspect-ratio: 1/1;
+  border: transparent;
+  border-radius: 20%;
+  background-color: #ffffff25;
+  padding: 5px;
+  width: 40px;
+  height: auto !important;
+}
+
+.textarea-btn-img{
+  aspect-ratio: 1/1;
+  border: transparent;
+  border-radius: 20%;
+  background-color: #ffffff25;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+}
+
+.textarea-btn-img img{
+  width: 30px;
+  height: 30px;
+}
+/* width */
+#friends::-webkit-scrollbar {
+  width: 5px;
+}
+
+#friends{
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Track */
+#friends::-webkit-scrollbar-track {
+  background: #00000000;
+}
+
+/* Handle */
+#friends::-webkit-scrollbar-thumb {
+  background: rgb(15, 19, 53);
+}
+
+/* Handle on hover */
+#friends::-webkit-scrollbar-thumb:hover {
+  background: rgb(61, 17, 63);
+}
+
+.friend{
+  background-color: #27000085;
+  margin-top: 10px;
+  padding: 10px 5px;
+  display: flex;
+  align-items: center;
+  border: transparent;
+  border-radius: 0;
+  color: white;
+}
+.friend-avatar{
+  aspect-ratio: 1/1;
+  width: 15%;
+  height: auto;
+  border: transparent;
+  border-radius: 50%;
+  float: left;
+  margin-right: 5px;
+}
+.friend-name{
+  font-size: 1.25em;
+}
+#intercultor-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1em;
+}
+#intercultor-info-avatar{
+  aspect-ratio: 1/1;
+  width: 70%;
+  height: auto;
+  border: transparent;
+  border-radius: 50%;
+}
+#intercultor-info-username{
+  margin-bottom: 0;
+}
+#intercultor-info-name{
+  margin-top: 0;
+  color: #5C5C5C;
+}
+#intercultor-info-about{
+  border: transparent;
+  border-radius: 0;
+  background-color: #00000037;
+  padding: 5% 5% ;
+}
