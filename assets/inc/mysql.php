@@ -1,13 +1,7 @@
 <?php
 function mysqlQuery($query)
 {
-    // include "../../security/passsql.php";
-    $my_sql_data = [
-        'servername' => 'localhost',
-        'username' => 'dulecord',
-        'password' => '16031987',
-        'dbname' => 'dulecord'
-    ];
+    include "../../security/passsql.php";
     // Create connection
     $conn = new mysqli(
         $my_sql_data['servername'],
@@ -21,16 +15,18 @@ function mysqlQuery($query)
 }
 
 class BulbaSqlConn{
-    private $my_sql_data = [
-        'servername' => 'localhost',
-        'username' => 'dulecord',
-        'password' => '16031987',
-        'dbname' => 'dulecord'
-    ];
-    private $conn;
-    public function __construct(){
-
+    private $jsonString;
+    private $my_sql_data;
+    public function __construct($path_to_json){
+        $this -> jsonString  = file_get_contents($path_to_json);
+        $this -> my_sql_data = json_decode($this->jsonString, true);
+        unset($this -> jsonString);
     }
+    /*
+    * makes query to the db using seted data
+    *
+    *
+    */
     function query($query){
         $conn = new mysqli(
             $this->my_sql_data['servername'],

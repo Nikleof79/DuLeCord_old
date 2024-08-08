@@ -2,12 +2,9 @@
 session_start();
 include('../assets/inc/mysql.php');
 
-// $_POST['username'];
-// $_POST['pass'];
-
-//TODO : Login system
+//👍 good job
 try{
-$MySql = new BulbaSqlConn();
+$MySql = new BulbaSqlConn("../security/passsql.json");
 $query_result = $MySql ->query("SELECT * FROM users WHERE username ='" . $_POST['username'] . "';")->fetch_array();
 }catch(Exception $e){
     $_SESSION['login-mistakes'] = "Unable to connect to database , try again later";

@@ -15,7 +15,7 @@ if ($_SESSION['logined'] == false) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include "./assets/inc/links.php"; ?>
-    <link rel="stylesheet" href="assetsss/index.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <style>
         .dropdown-toggle::after {
             display: none !important;
@@ -33,15 +33,15 @@ if ($_SESSION['logined'] == false) {
                 </div>
                 <div class="collapse navbar-collapse col-8" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <img src="assetsmg/test_avatar.png" alt="" id="intercultor-avatar">
+                        <img src="assets/img/test_avatar.png" alt="" id="intercultor-avatar">
                         <p src="" alt="" id="intercultor-name" class="m-0">Nikleof</p>
                     </ul>
                     <div class="col-2 d-flex justify-content-end pe-2">
                         <a href="friends.php" class="nav-round-btn">
-                            <img src="assetsmg/friends_logo.png" alt="">
+                            <img src="assets/img/friends_logo.png" alt="">
                         </a>
                         <button class="nav-round-btn">
-                            <img src="assetsmg/chat_logo.png" alt="">
+                            <img src="assets/img/chat_logo.png" alt="">
                         </button>
                     </div>
                 </div>
@@ -50,22 +50,22 @@ if ($_SESSION['logined'] == false) {
         <main>
             <div id="friends" class="col-2 bg-2quater-transparent">
                 <button class="friend">
-                    <img src="assetsmg/test_avatar.png" alt="" class="friend-avatar">
+                    <img src="assets/img/test_avatar.png" alt="" class="friend-avatar">
                     <h1 class="friend-name">Nikleof</h1>
                 </button>
                 <button class="friend">
-                    <img src="assetsmg/test_avatar.png" alt="" class="friend-avatar">
+                    <img src="assets/img/test_avatar.png" alt="" class="friend-avatar">
                     <h1 class="friend-name">Nikleof</h1>
                 </button>
                 <button class="friend">
-                    <img src="assetsmg/test_avatar.png" alt="" class="friend-avatar">
+                    <img src="assets/img/test_avatar.png" alt="" class="friend-avatar">
                     <h1 class="friend-name">Nikleof</h1>
                 </button>
             </div>
             <div id="chatarea" class="col-8 p-2 pt-0">
                 <div id="messages">
                     <div class="message messageByIntercultor">
-                        <img src="assetsg/test_avatar2.png " alt="" class="senderAvatar">
+                        <img src="assets/img/test_avatar2.png " alt="" class="senderAvatar">
                         <div class="d-inline-block">
                             <div class="d-flex align-items-center">
                                 <p class="messageInner">Hi nikleof</p>
@@ -73,7 +73,7 @@ if ($_SESSION['logined'] == false) {
                         </div>
                     </div>
                     <div class="message messageByMe">
-                        <img src="assetsg/test_avatar.png " alt="" class="senderAvatar">
+                        <img src="assets/img/test_avatar.png " alt="" class="senderAvatar">
                         <div class="d-inline-block">
                             <div class="d-flex align-items-center">
                                 <p class="messageInner">
@@ -83,7 +83,7 @@ if ($_SESSION['logined'] == false) {
                         </div>
                     </div>
                     <div class="message messageByIntercultor">
-                        <img src="assetsg/test_avatar2.png " alt="" class="senderAvatar">
+                        <img src="assets/img/test_avatar2.png " alt="" class="senderAvatar">
                         <div class="d-inline-block">
                             <div class="d-flex align-items-center">
                                 <p class="messageInner">when DuLeCord is coming out ?</p>
@@ -91,7 +91,7 @@ if ($_SESSION['logined'] == false) {
                         </div>
                     </div>
                     <div class="message messageByMe">
-                        <img src="assetsg/test_avatar.png " alt="" class="senderAvatar">
+                        <img src="assets/img/test_avatar.png " alt="" class="senderAvatar">
                         <div class="d-inline-block">
                             <div class="d-flex align-items-center">
                                 <p class="messageInner">Soon</p>
@@ -99,7 +99,7 @@ if ($_SESSION['logined'] == false) {
                         </div>
                     </div>
                     <div class="message messageByIntercultor">
-                        <img src="assetsg/test_avatar2.png " alt="" class="senderAvatar">
+                        <img src="assets/img/test_avatar2.png " alt="" class="senderAvatar">
                         <div class="d-inline-block">
                             <div class="d-flex align-items-center">
                                 <p class="messageInner">cool <span class="smile-font">👍</span></p>
@@ -124,13 +124,13 @@ if ($_SESSION['logined'] == false) {
                                     </div>
                                 </ul>
                             </div>
-                            <button class="textarea-btn-img"> <img src="assetsmg/image_logo.png" alt=""> </button>
+                            <button class="textarea-btn-img"> <img src="assets/img/image_logo.png" alt=""> </button>
                         </div>
                     </div>
                 </div>
             </div>
             <div id="intercultor-info" class="col-2 bg-2quater-transparent">
-                <img src="assetsmg/test_avatar.png" alt="" id="intercultor-info-avatar">
+                <img src="assets/img/test_avatar.png" alt="" id="intercultor-info-avatar">
                 <h4 id="intercultor-info-username">Nikleof</h4>
                 <h4 id="intercultor-info-name"><em>@n1kLe0f</em></h4>
                 <div class="intercultor-info-about">
@@ -145,7 +145,7 @@ if ($_SESSION['logined'] == false) {
         </main>
     </page>
     <?php include "./assets/inc/scripts.php" ?>
-    <script src="assetss/index.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
 
 </html>

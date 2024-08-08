@@ -18,7 +18,7 @@ checkSession();
     <?php
     include './assets/inc/links.php'
         ?>
-    <link rel="stylesheet" href="assetsss/start.css">
+    <link rel="stylesheet" href="./assets/css/start.css">
 </head>
 
 <body>

@@ -18,7 +18,7 @@ $app = new BulbaApp();
 
 $app.req('/',function($req,$res){
     if ($_SESSION['logined']){
-        $mysql = new BulbaSqlConn();
+        $mysql = new BulbaSqlConn("../../security/passsql.json");
         $friends = $mysql->query("SELECT 'requester','reciver' FROM 'friends' WHERE 'is_request' = 0 AND 'requester'=' " . $_SESSION['username'] . "' ");
         $ret_data = [
             'friends'=>[

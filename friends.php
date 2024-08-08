@@ -18,8 +18,19 @@ if (!$_SESSION['logined']) {
 <body>
     <h1>Friends page</h1>
     <div id="friends">
+        
+    </div>
+    <div id="my-req">
 
     </div>
+    <div id="for-me-req">
+
+    </div>
+    <form action="./handlers/friends.php" method="post">
+        <h1>Throw request</h1>
+        <input placeholder="username" type="text" name="target_username" id="">
+        <br><button type="submit">send</button>
+    </form>
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/friends.js"></script>
 </body>

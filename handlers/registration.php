@@ -17,7 +17,7 @@ function checks($post)
                 $_SESSION['reg-mistakes'] = 'Unable username';
                 if (!preg_match("/['\"`]/", $post['username'])) {
                     try {
-                        $Mysql = new BulbaSqlConn();
+                        $Mysql = new BulbaSqlConn("../security/passsql.json");
 
                         $db = $Mysql->query('SELECT * FROM `users` WHERE `username` = "' . $post['username'] . '"')->fetch_assoc();
                     } catch (Exception $e) {
@@ -54,7 +54,7 @@ if ($checks) {
     $newPass = password_hash($new_data['pass'], PASSWORD_DEFAULT);
     $insert_sql_query = " INSERT INTO users (username,name,password,about) VALUES ('$newUsername','$newName','$newPass',null);";
     // echo $insert_sql_query;
-    $MySql = new BulbaSqlConn();
+    $MySql = new BulbaSqlConn("../security/passsql.json");
     $MySql->query($insert_sql_query);
 
     $_SESSION['logined'] = true;
