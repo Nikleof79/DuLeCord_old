@@ -18,9 +18,19 @@ require_once "../../library/bulbaPHP.php";
         $mysql = new BulbaSqlConn("../../security/passsql.json");
         $sql_query = "SELECT * FROM friends WHERE requester='" . $_SESSION['login-data']['username'] . "' OR reciver = '" . $_SESSION['login-data']['username'] . "';";
         $friends = $mysql->query($sql_query)->fetch_assoc();
+        $sql_query = "SELECT * FROM friends_requests WHERE requester='" . $_SESSION['login-data']['username'] . "';";
+        $requestsFrom = $mysql->query($sql_query)->fetch_assoc();
+        $sql_query = "SELECT * FROM friends_requests WHERE reciver='" . $_SESSION['login-data']['username'] . "';";
+        $requestsTo = $mysql->query($sql_query)->fetch_assoc();
         $ret_data = [
             'friends' => [
                 $friends
+            ],
+            "requestFrom"=>[
+                $requestsFrom
+            ],
+            "requestTo"=>[
+                $requestsTo
             ],
             'user_data' => [
                 'username' => $_SESSION['login-data']['username'],

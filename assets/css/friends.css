@@ -1,0 +1,10 @@
+.friend-btn{
+    background-color: transparent;
+    border: none;
+    padding: .5rem;
+    text-shadow: 2px 2px 0 #00000000;
+    transition: text-shadow .2s;
+}
+.friend-btn:hover{
+    text-shadow: 2px 2px 6px #000;
+}

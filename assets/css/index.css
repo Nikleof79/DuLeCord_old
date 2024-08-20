@@ -18,24 +18,6 @@ body {
   padding: 0 !important;
   height: 80px !important;
 }
-.navbar .container-fluid{
-  height: 100%;
-}
-.nav-round-btn{
-  aspect-ratio: 1/1;
-  border: transparent;
-  border-radius: 50%;
-  background-color: #fff;
-  /* height: 40px;
-  width: auto; */
-  padding: 0;
-}
-
-.nav-round-btn img{
-  height: 50px;
-  width: auto;
-}
-
 .navbar-brand{
   /* <p>Chats<p> */
   font-size: 50px !important;
@@ -128,6 +110,7 @@ main{
 }
 
 .messageInner{
+  font-size: 1.4em;
   display: inline-block;
   margin: 0;
 }
@@ -220,7 +203,7 @@ main{
 }
 
 .friend{
-  background-color: #27000085;
+  background-color: #00000085;
   margin-top: 10px;
   padding: 10px 5px;
   display: flex;

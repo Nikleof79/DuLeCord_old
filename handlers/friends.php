@@ -1,4 +1,5 @@
 <?php
+// this handler is handling throwed friends requests
 include "../assets/inc/mysql.php";
 session_start();
 
@@ -8,16 +9,21 @@ function checks($post)
     $ret_data = false;
     if (isset($post['target_username'])) {
         if (mb_strlen($post['target_username']) < 26) {
-            $mysql = new BulbaSqlConn("../security/passsql.json");
-            $db = $mysql->query("SELECT username FROM users WHERE username = '" . $post['target_username'] . "';")->fetch_assoc();
-            if (is_array($db)) {
-                if (count($db) > 0) {
-                    $ret_data = true;
+            if ($post['target_username'] != $_SESSION['username'])
+            {
+                $mysql = new BulbaSqlConn("../security/passsql.json");
+                $db = $mysql->query("SELECT username FROM users WHERE username = '" . $post['target_username'] . "';")->fetch_assoc();
+                if (is_array($db)) {
+                    if (count($db) > 0) {
+                        $ret_data = true;
+                    } else {
+                        $mistake = "User not found";
+                    }
                 } else {
-                    $mistake = "User not found";
+                    $mistake = "Unable to connect to database. Please buy for our company new server";
                 }
-            } else {
-                $mistake = "Unable to connect to database. Please buy for our company new server";
+            }else{
+                $mistake = "You cannot throw request to you";
             }
         } else {
             $mistake = "Please enter a valid username";

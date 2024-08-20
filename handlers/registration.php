@@ -62,4 +62,9 @@ if ($checks) {
         'username' => $_POST['username'],
         'name' => $_POST['username']
     ];
+    header("Location: ../index.php");
+    exit;
+}else{
+    header("Location: ../start.php");
+    exit;
 }
