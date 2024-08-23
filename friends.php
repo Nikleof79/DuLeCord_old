@@ -22,19 +22,16 @@ if (!$_SESSION['logined']) {
     <nav class="navbar navbar-expand-lg navbar-dark bg-3quater-transparent">
         <div class="container-fluid ps-0">
             <div class="col-2 d-flex justify-content-center pe-3 bg-3quater-transparent">
-                <form action="./handlers/friends.php" method="post" class="d-flex">
-                    <input placeholder="username" type="text" name="target_username" id="">
-                    <button type="submit">send</button>
-                </form>
+
             </div>
             <div class="collapse navbar-collapse col-8" id="navbarSupportedContent">
                 <div class="col-2 d-flex justify-content-end pe-2">
                     <a href="friends.php" class="nav-round-btn">
                         <img src="assets/img/friends_logo.png" alt="">
                     </a>
-                    <button class="nav-round-btn">
+                    <a href="index.php" class="nav-round-btn">
                         <img src="assets/img/chat_logo.png" alt="">
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -53,6 +50,10 @@ if (!$_SESSION['logined']) {
         <div id="for-me-req" class="col-2">
 
         </div>
+        <form action="./handlers/friends.php" method="post" class="d-flex m-2">
+            <input placeholder="username" type="text" name="target_username" id="">
+            <button type="submit">send</button>
+        </form>
     </main>
 
 
@@ -67,7 +68,7 @@ if (!$_SESSION['logined']) {
     }
     ?>
     <?php include "./assets/inc/scripts.php" ?>
-<!--    <script src="assets/js/friends.js"></script>-->
+    <script src="assets/js/friends.js"></script>
 </body>
 
 </html>

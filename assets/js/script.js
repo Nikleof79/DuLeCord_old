@@ -6,3 +6,14 @@ const cssData = {
         "dark":"background: rgb(34,34,34); background: linear-gradient(0deg, rgba(34,34,34,1) 0%, rgba(17,17,17,1) 100%);"
     }
 };
+
+const dataFromBackend = null;
+$.ajax({
+    type: "POST",
+    url: "/handlers/api/get_data.php",
+    data: null,
+    dataType: "application/json",
+    success: function (response) {
+        dataFromBackend = response;
+    }
+});
