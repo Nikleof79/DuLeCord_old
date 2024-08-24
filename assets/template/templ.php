@@ -18,6 +18,7 @@ if ($_SESSION['logined'] == false) {
 
 <body>
     <?php include "./assets/inc/scripts.php" ?>
+    <script src="assets/js/dataFromBack.js"></script>
 </body>
 
 </html>

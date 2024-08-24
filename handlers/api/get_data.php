@@ -33,6 +33,8 @@ function requestsFrom(){
             )->fetch_assoc();
             $ret_data[] = $reciver;
         }
+    }else{
+        $ret_data = 'null';
     }
     return $ret_data;
 }
@@ -50,6 +52,8 @@ function requestsFor(){
             )->fetch_assoc();
             $ret_data[] = $reciver;
         }
+    }else{
+        $ret_data = 'null';
     }
     return $ret_data;
 }

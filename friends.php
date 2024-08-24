@@ -38,15 +38,9 @@ if (!$_SESSION['logined']) {
     </nav>
     <main>
         <div id="friends" class="col-10">
-<!--            <div class="friend">
-                <h1 class="friend-name">Timonyt</h1>
-                <div class="friend btns">
-                    <button class="friend-btn smile-font friend-deleter" >❎</button>
-                </div>
-         </div>-->
         </div>
-        <!--    <div id="my-req">-->
-        <!--    </div>-->
+            <div id="my-req">
+            </div>
         <div id="for-me-req" class="col-2">
 
         </div>
@@ -68,6 +62,7 @@ if (!$_SESSION['logined']) {
     }
     ?>
     <?php include "./assets/inc/scripts.php" ?>
+    <script src="assets/js/dataFromBack.js"></script>
     <script src="assets/js/friends.js"></script>
 </body>
 
