@@ -64,11 +64,8 @@ $ret_data = [
         'name'=>$_SESSION['login-data']['name']
     ],
     'friends'=>friends(),
-    'requests'=>
-        [
-            'from'=>requestsFrom(),
-            'for'=>requestsFor()
-        ]
+    'requestsFrom'=>requestsFrom(),
+    'requestsFor'=>requestsFor()
 ];
 header('Content-type: application/json');
 echo json_encode($ret_data);

@@ -39,10 +39,9 @@ if (!$_SESSION['logined']) {
     <main>
         <div id="friends" class="col-10">
         </div>
-            <div id="my-req">
-            </div>
+        <div id="my-req">
+        </div>
         <div id="for-me-req" class="col-2">
-
         </div>
         <form action="./handlers/friends.php" method="post" class="d-flex m-2">
             <input placeholder="username" type="text" name="target_username" id="">

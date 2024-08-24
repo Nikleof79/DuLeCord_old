@@ -1,5 +1,5 @@
 const Blocks = {
-    "friends":(username,name) =>{
+    "friends": (username, name) => {
         return `
         <div class="friend">
                 <h1 class="friend-name"> ${name} </h1>
@@ -9,41 +9,42 @@ const Blocks = {
         </div>
             `;
     },
-    "requestsFrom":(username,name)=>{
+    "requestsFrom": (username, name) => {
+        return `
+        <div class="requestFrom">
+            <h1 class="friend-name">${name}</h1>
+            <div class="friend-btns">
+                <button class="friend-btn smile-font friend-deleter" dulecord-target="${username}"  onclick="deleteRequestFor(this);">❎</button>
+            </div>
+        </div>
+        `
+    },
+    "requestFor": (username, name) => {
         return `
         <div class="requestFrom">
             <h1 class="friend-name">${name}</h1>
             <div class="friend-btns">
                 <button class="friend-btn smile-font friend-deleter" dulecord-target="${username}"  onclick="submitRequestFrom(this);">✅</button>
-                <button class="friend-btn smile-font friend-deleter" dulecord-target="${username}"  onclick="deleteRequestFrom(this);">❎</button>
-            </div>
-        </div>
-        `
-    },
-    "requestFor":(username,name)=> {
-        return `
-        <div class="requestFrom">
-            <h1 class="friend-name">${name}</h1>
-            <div class="friend-btns">
-                <button class="friend-btn smile-font friend-deleter" dulecord-target="${username}"  onclick="declineRequestFor(this);">❎</button>
             </div>
         </div>
         `
     }
 }
 
-function displayFriends(){
+function displayFriends() {
     if (dataFromBackend !== undefined) {
+        console.log(dataFromBackend);
+
         dataFromBackend.friends.forEach(friend => {
             $('#friends').append(Blocks.friends(friend.username, friend.name))
-        })
-        dataFromBackend.request["for"].forEach(request => {
-            $('#for-me-req').append(Blocks.requestFor(request.username, request.name))
+        });
+        dataFromBackend.requestsFor.forEach(element => {
+            $('#for-me-req').append(Blocks.requestFor(element.username, element.name))
         })
 
-        dataFromBackend.request.from.forEach(request => {
-            $('#my-req').append(Blocks.requestFor(request.username, request.name))
-        })
+        dataFromBackend.requestsFrom.forEach(element => {
+            $('#my-req').append(Blocks.requestsFrom(element.username, element.name))
+        });
     }
 }
 
@@ -53,12 +54,32 @@ function deleteFriend(button) {
         type: "POST",
         url: "/handlers/api/delete_friend.php",
         data: {
+            'target_username': username
+        },
+        dataType: "text",
+        success: function (response) {
+            console.log(response);
+            if (response === 'successfully') {
+                window.location.reload();
+            } else {
+                alert('Not successfully 😭');
+            }
+        }
+    });
+}
+
+function submitRequestFrom(button) {
+    let username = button.getAttribute('dulecord-target');
+    $.ajax({
+        type: "POST",
+        url: "/handlers/api/submit_request.php",
+        data: {
             'target_username':username
         },
         dataType: "text",
         success: function (response) {
             console.log(response);
-            if (response === 'successfully'){
+            if (response == 'successfully') {
                 window.location.reload();
             }
         }
