@@ -2,7 +2,9 @@ const Blocks = {
     "friends": (username, name) => {
         return `
         <div class="friend">
-                <h1 class="friend-name"> ${name} </h1>
+                <h1 class="friend-name" id="${username}"  onready="function(e){
+                e.innerText = ${username}
+            }></h1>
                 <div class="friend-btns">
                     <button class="friend-btn smile-font friend-deleter" dulecord-target="${username}"  onclick="deleteFriend(this);" >❎</button>
                 </div>
@@ -12,7 +14,9 @@ const Blocks = {
     "requestsFrom": (username, name) => {
         return `
         <div class="requestFrom">
-            <h1 class="friend-name">${name}</h1>
+            <h1 class="friend-name" id="${username}" onready="function(e){
+                e.innerText = ${username}
+            } ></h1>
             <div class="friend-btns">
                 <button class="friend-btn smile-font friend-deleter" dulecord-target="${username}"  onclick="deleteRequestFor(this);">❎</button>
             </div>
@@ -22,7 +26,9 @@ const Blocks = {
     "requestFor": (username, name) => {
         return `
         <div class="requestFrom">
-            <h1 class="friend-name">${name}</h1>
+            <h1 class="friend-name" onready="function(e){
+                e.innerText = ${username}
+            }"></h1>
             <div class="friend-btns">
                 <button class="friend-btn smile-font friend-deleter" dulecord-target="${username}"  onclick="submitRequestFrom(this);">✅</button>
             </div>
@@ -79,8 +85,10 @@ function submitRequestFrom(button) {
         dataType: "text",
         success: function (response) {
             console.log(response);
-            if (response == 'successfully') {
+            if (response === 'successfully') {
                 window.location.reload();
+            }else{
+                alert('Not successfully 😭');
             }
         }
     });

@@ -37,7 +37,7 @@ function checks($post)
                     unset($cond);
                 }
             }
-
+            
         }
     }
     return $ret_data;
