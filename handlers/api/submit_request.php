@@ -20,14 +20,18 @@ function checks($post)
 }
 
 $checks = checks($_POST);
-if ($checks == true) {
+if ($checks) {
     $mysql = new BulbaSqlConn('../../security/passsql.json');
     $mysql->query("
     DELETE FROM friends_requests WHERE requester = '" . $_POST['target_username'] . "' AND reciver = '" . $_SESSION['login-data']['username'] . "'
     ;");
-    $mysql->query("
+    $sql_query = "
     INSERT INTO friends (requester, reciver) VALUES ('" . $_POST['target_username'] . "', '" . $_SESSION['login-data']['username'] . "') ;
-    INSERT INTO friends (requester, reciver) VALUES ('" . $_SESSION['login-data']['username'] . "', '" . $_POST['target_username'] . "') ;
-    ");
+    ";
+    $mysql->query($sql_query);
+    $sql_query = "
+        INSERT INTO friends (requester, reciver) VALUES ('" . $_SESSION['login-data']['username'] . "', '" . $_POST['target_username'] . "') ;
+    ";
+    $mysql->query($sql_query);
     echo "successfully";
 }

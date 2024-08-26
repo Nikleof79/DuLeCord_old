@@ -1,22 +1,22 @@
 const Blocks = {
     "friends": (username, name) => {
+        console.log(username,name)
         return `
         <div class="friend">
-                <h1 class="friend-name" id="${username}"  onready="function(e){
-                e.innerText = ${username}
-            }></h1>
+                <h3 class="friend-name mb-0" id="${username}" dulecord-name="${name} "></h3>
+                <p class="friend-type mb-0">Friend</p>
                 <div class="friend-btns">
                     <button class="friend-btn smile-font friend-deleter" dulecord-target="${username}"  onclick="deleteFriend(this);" >❎</button>
                 </div>
         </div>
-            `;
+        `;
     },
     "requestsFrom": (username, name) => {
+        console.log(username,name)
         return `
-        <div class="requestFrom">
-            <h1 class="friend-name" id="${username}" onready="function(e){
-                e.innerText = ${username}
-            } ></h1>
+        <div class="friend requestFrom">
+            <p class="friend-name" id="${username}" dulecord-name="${name} " ></p>
+            <p class="friend-type">: requestFrom</p>
             <div class="friend-btns">
                 <button class="friend-btn smile-font friend-deleter" dulecord-target="${username}"  onclick="deleteRequestFor(this);">❎</button>
             </div>
@@ -24,11 +24,11 @@ const Blocks = {
         `
     },
     "requestFor": (username, name) => {
+        console.log(username,name)
         return `
-        <div class="requestFrom">
-            <h1 class="friend-name" onready="function(e){
-                e.innerText = ${username}
-            }"></h1>
+        <div class="friend requestFrom">
+            <p class="friend-name" dulecord-name="${name}"></p>
+            <p class="friend-type">: requestFor</p>
             <div class="friend-btns">
                 <button class="friend-btn smile-font friend-deleter" dulecord-target="${username}"  onclick="submitRequestFrom(this);">✅</button>
             </div>
@@ -36,21 +36,38 @@ const Blocks = {
         `
     }
 }
+var dataFromBackend;
+function AfterAjax(x){
+    dataFromBackend = x;
+    displayFriends();
+        $('.friend-name').each(function (){
+            let attr = $(this).attr('dulecord-name');
+            $(this).text(attr);
+        })
+
+}
 
 function displayFriends() {
     if (dataFromBackend !== undefined) {
         console.log(dataFromBackend);
 
-        dataFromBackend.friends.forEach(friend => {
-            $('#friends').append(Blocks.friends(friend.username, friend.name))
-        });
-        dataFromBackend.requestsFor.forEach(element => {
-            $('#for-me-req').append(Blocks.requestFor(element.username, element.name))
-        })
+        if (dataFromBackend.friends !== null && dataFromBackend.friends !== undefined) {
+            dataFromBackend.friends.forEach(friend => {
+                $('#friends').append(Blocks.friends(friend.username, friend.name))
+            });
+        }
+        if (dataFromBackend.requestsFor !== null && dataFromBackend.requestsFor !== undefined){
+            dataFromBackend.requestsFor.forEach(element => {
+                $('#for-me-req').append(Blocks.requestFor(element.username, element.name))
+            })
+        }
 
-        dataFromBackend.requestsFrom.forEach(element => {
-            $('#my-req').append(Blocks.requestsFrom(element.username, element.name))
-        });
+        if (dataFromBackend.requestsFrom !== null && dataFromBackend.requestsFrom !== undefined){
+            console.log(dataFromBackend.requestsFrom)
+            dataFromBackend.requestsFrom.forEach(element => {
+                $('#my-req').append(Blocks.requestsFrom(element.username, element.name))
+            });
+        }
     }
 }
 

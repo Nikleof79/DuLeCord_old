@@ -43,9 +43,9 @@ if (!$_SESSION['logined']) {
         </div>
         <div id="for-me-req" class="col-2">
         </div>
-        <form action="./handlers/friends.php" method="post" class="d-flex m-2">
-            <input placeholder="username" type="text" name="target_username" id="">
-            <button type="submit">send</button>
+        <form action="./handlers/friends.php" method="post" class="d-flex m-2" id="main-form">
+            <input placeholder="username" type="text" name="target_username" class="form-control" id=""> <br>
+            <button type="submit" class="btn btn-primary">send</button>
         </form>
     </main>
 
@@ -61,7 +61,6 @@ if (!$_SESSION['logined']) {
     }
     ?>
     <?php include "./assets/inc/scripts.php" ?>
-    <script src="assets/js/dataFromBack.js"></script>
     <script src="assets/js/friends.js"></script>
 </body>
 
