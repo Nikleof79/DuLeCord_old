@@ -54,14 +54,24 @@ function requestsFor(){
     return $ret_data;
 }
 
+function hasAvatar()
+{
+    $mysql = new BulbaSqlConn('../../security/passsql.json');
+    $ret_data = $mysql->query("
+    SELECT hasAvatar FROM users WHERE username = '" . $_SESSION['login-data']['username'] . "'
+    ;")->fetch_assoc();
+    return $ret_data;
+}
+
 $ret_data = [
     'login-data'=>[
         'username'=>$_SESSION['login-data']['username'],
-        'name'=>$_SESSION['login-data']['name']
+        'name'=>$_SESSION['login-data']['name'],
+        'hasAvatar'=>hasAvatar()
     ],
     'friends'=>friends(),
     'requestsFrom'=>requestsFrom(),
-    'requestsFor'=>requestsFor()
+    'requestsFor'=>requestsFor(),
 ];
 header('Content-type: application/json');
 echo json_encode($ret_data);

@@ -19,35 +19,41 @@ if (!$_SESSION['logined']) {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-3quater-transparent">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-3quater-transparent p-0">
         <div class="container-fluid ps-0">
-            <div class="col-2 d-flex justify-content-center pe-3 bg-3quater-transparent">
-
+            <div class="col-8 d-flex justify-content-start pe-3">
+                <form action="./handlers/friends.php" method="post" class="d-flex m-2" id="main-form">
+                    <input placeholder="username" type="text" name="target_username" class="form-control" id="">
+                    <button type="submit" class="btn btn-primary">send</button>
+                </form>
             </div>
-            <div class="collapse navbar-collapse col-8" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse col-2" style=" justify-content: flex-end; " id="navbarSupportedContent">
                 <div class="col-2 d-flex justify-content-end pe-2">
-                    <a href="friends.php" class="nav-round-btn">
+                    <button class="nav-round-btn">
                         <img src="assets/img/friends_logo.png" alt="">
-                    </a>
+                    </button>
                     <a href="index.php" class="nav-round-btn">
                         <img src="assets/img/chat_logo.png" alt="">
+                    </a>
+                    <a href="account.php" class="nav-round-btn">
+                        <img src="assets/img/account_logo.png" alt="">
                     </a>
                 </div>
             </div>
         </div>
     </nav>
-    <main>
-        <div id="friends" class="col-10">
-        </div>
-        <div id="my-req">
-        </div>
-        <div id="for-me-req" class="col-2">
-        </div>
-        <form action="./handlers/friends.php" method="post" class="d-flex m-2" id="main-form">
-            <input placeholder="username" type="text" name="target_username" class="form-control" id=""> <br>
-            <button type="submit" class="btn btn-primary">send</button>
-        </form>
-    </main>
+    <page id="pc-page">
+        <main>
+            <div id="friends" class="col-10">
+            </div>
+            <div class="col-2" id="right-side">
+                <div id="my-req" class="col-2">
+                </div>
+                <div id="for-me-req" class="col-2">
+                </div>
+            </div>
+        </main>
+    </page>
 
 
     <?php

@@ -106,8 +106,6 @@ checkSession();
             </div>
         </div>
     </div>
-
-    </page>
     <?php
     if (isset($_SESSION['login-mistakes'])) {
         ?>

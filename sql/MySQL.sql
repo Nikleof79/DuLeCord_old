@@ -16,6 +16,11 @@ CREATE TABLE friends
 
 CREATE TABLE friends_requests
 (
-    requester VARCHAR(25) NOT NULL,
-    reciver   VARCHAR(25) NOT NULL
+    `requester` VARCHAR(25) NOT NULL,
+    `reciver`   VARCHAR(25) NOT NULL
 );
+
+CREATE TABLE `dulecord`.`users_avatars` (
+    `username` VARCHAR(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+    `hasAvatar` TINYINT(1) NOT NULL
+) ENGINE = InnoDB;

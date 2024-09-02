@@ -52,7 +52,9 @@ if ($checks) {
     $newUsername = $new_data['username'];
     $newName = $new_data['username'];
     $newPass = password_hash($new_data['pass'], PASSWORD_DEFAULT);
-    $insert_sql_query = " INSERT INTO users (username,name,password,about) VALUES ('$newUsername','$newName','$newPass',null);";
+    $insert_sql_query = " 
+        INSERT INTO users (username,name,password,hasAvatar,about) VALUES ('$newUsername','$newName','$newPass',0,null)
+    ;";
     // echo $insert_sql_query;
     $MySql = new BulbaSqlConn("../security/passsql.json");
     $MySql->query($insert_sql_query);
