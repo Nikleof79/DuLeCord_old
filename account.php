@@ -38,6 +38,34 @@ if (!$_SESSION['logined']) {
         </div>
     </div>
 </nav>
+<page id="pc-page" class="d-flex">
+    <div class="left-bar col-2">
+        <h1>Edit profile</h1>
+        <img src="/assets/img/account_logo.png" alt="">
+        <button class="btn btn-primary">Change Avatar</button>
+        <button class="btn btn-primary">Change Display Name</button>
+        <button class="btn btn-primary">Change About</button>
+        <hr>
+        <button class="btn btn-danger">Delete Account nahuy</button>
+    </div>
+    <main class="col-8">
+        <img src="/assets/img/account_logo.png" alt="">
+        <h1>name</h1>
+        <h2>@username</h2>
+        <div class="about">
+            <p>No info available</p>
+        </div>
+    </main>
+    <div class="right-bar col-2">
+        <h1>Change Theme</h1>
+        <div>
+            <button>Default</button>
+            <button>Grape</button>
+            <button>Dark</button>
+            <button>Aqua</button>
+        </div>
+    </div>
+</page>
 <?php include "./assets/inc/scripts.php" ?>
 <script src="assets/js/dataFromBack.js"></script>
 <script src="assets/js/account.js"></script>
