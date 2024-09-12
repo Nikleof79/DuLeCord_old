@@ -52,8 +52,9 @@ if ($checks) {
     $newUsername = $new_data['username'];
     $newName = $new_data['username'];
     $newPass = password_hash($new_data['pass'], PASSWORD_DEFAULT);
+    $default_settings = file_get_contents('../assets/template/deafult_settings.json');
     $insert_sql_query = " 
-        INSERT INTO users (username,name,password,hasAvatar,about) VALUES ('$newUsername','$newName','$newPass',0,null)
+        INSERT INTO users (username,name,password,hasAvatar,settings,about) VALUES ('$newUsername','$newName','$newPass',0, '$default_settings' ,null)
     ;";
     // echo $insert_sql_query;
     $MySql = new BulbaSqlConn("../security/passsql.json");

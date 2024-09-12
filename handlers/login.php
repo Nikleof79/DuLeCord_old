@@ -11,8 +11,6 @@ $query_result = $MySql ->query("SELECT * FROM users WHERE username ='" . $_POST[
     header("Location: /start.php");
     exit();
 }
-// print_r($query_result);
-// echo $query_result;
 
 // $query_result = [];
 if (is_array($query_result)) {

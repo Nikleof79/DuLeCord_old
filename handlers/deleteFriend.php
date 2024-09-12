@@ -22,6 +22,7 @@ function checks($post)
 
 
 if (checks($_POST)){
+    $post = $_POST;
     $mysql = new BulbaSqlConn('../security/passsql.json'); ;
     $mysql->query(
         "DELETE FROM friends WHERE ( 

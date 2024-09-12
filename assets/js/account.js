@@ -1,3 +1,3 @@
-function AfterAjax(x){
-    console.log(x)
+function AfterAjax(data) {
+    $('#user-name').text(data['login-data'].name);
 }

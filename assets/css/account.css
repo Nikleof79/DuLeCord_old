@@ -5,3 +5,23 @@ body{
     overflow: hidden;
     color: white;
 }
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar{
+    padding: 0 !important;
+    height: 80px !important;
+}
+
+img{
+    background-color: #fff;
+    border-radius: 50%;
+
+}
+
+.left-bar , .right-bar {
+    background-color: #00000050;
+}

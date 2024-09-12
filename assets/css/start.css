@@ -2,6 +2,11 @@ body{
     overflow: hidden;
 }
 
+.navbar{
+    padding: 0 !important;
+    height: 80px !important;
+}
+
 #pc-main{
     width: 100vw;
     height: 100vh;

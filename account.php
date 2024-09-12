@@ -46,12 +46,13 @@ if (!$_SESSION['logined']) {
         <button class="btn btn-primary">Change Display Name</button>
         <button class="btn btn-primary">Change About</button>
         <hr>
-        <button class="btn btn-danger">Delete Account nahuy</button>
+        <a href="/handlers/LeaveFromAcc.php" class="btn btn-danger">Leave From Account</a>
+        <button class="btn btn-danger">Delete Account</button>
     </div>
     <main class="col-8">
         <img src="/assets/img/account_logo.png" alt="">
-        <h1>name</h1>
-        <h2>@username</h2>
+        <h1 id="user-name">name</h1>
+        <h2 class="user-username">@<span id="user-username">username</span></h2>
         <div class="about">
             <p>No info available</p>
         </div>
@@ -59,10 +60,10 @@ if (!$_SESSION['logined']) {
     <div class="right-bar col-2">
         <h1>Change Theme</h1>
         <div>
-            <button>Default</button>
-            <button>Grape</button>
-            <button>Dark</button>
-            <button>Aqua</button>
+            <button class="btn btn-primary">Default</button>
+            <button class="btn btn-primary">Grape</button>
+            <button class="btn btn-primary">Dark</button>
+            <button class="btn btn-primary">Aqua</button>
         </div>
     </div>
 </page>

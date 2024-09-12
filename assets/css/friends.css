@@ -7,6 +7,11 @@ body {
     overflow: hidden;
 }
 
+.navbar{
+    padding: 0 !important;
+    height: 80px !important;
+}
+
 @media (min-width: 1025px) {
 
     #main-form {

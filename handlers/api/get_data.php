@@ -1,6 +1,16 @@
 <?php
 include '../../assets/inc/mysql.php';
 session_start();
+
+function settings()
+{
+    $mysql = new BulbaSqlConn('../../security/passsql.json');
+    $ret_data = $mysql->query(
+        "SELECT settings FROM friends WHERE reciver = '" . $_SESSION['login-data']['username'] . "';"
+    )->fetch_assoc();
+    return $ret_data['settings'];
+}
+
 function friends()
 {
     $ret_data = null;
@@ -72,6 +82,7 @@ $ret_data = [
     'friends'=>friends(),
     'requestsFrom'=>requestsFrom(),
     'requestsFor'=>requestsFor(),
+    'settings'=>settings()
 ];
 header('Content-type: application/json');
 echo json_encode($ret_data);
