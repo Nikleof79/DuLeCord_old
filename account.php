@@ -68,7 +68,6 @@ if (!$_SESSION['logined']) {
     </div>
 </page>
 <?php include "./assets/inc/scripts.php" ?>
-<script src="assets/js/dataFromBack.js"></script>
 <script src="assets/js/account.js"></script>
 </body>
 
