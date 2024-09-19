@@ -16,7 +16,8 @@ $.ajax({
   contentType: false,
   success: function (response) {
     console.log(response)
-    $("body").addClass(`${response.settings.theme}-theme`);
+    console.log(JSON.parse(response.settings));
+    $("body").addClass(`${JSON.parse(response.settings).theme}-theme`);
     AfterAjax(response);
   },
   error: (jqXHR, textStatus, errorThrown) => {

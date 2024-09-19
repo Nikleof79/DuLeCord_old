@@ -6,7 +6,7 @@ function settings()
 {
     $mysql = new BulbaSqlConn('../../security/passsql.json');
     $ret_data = $mysql->query(
-        "SELECT settings FROM friends WHERE reciver = '" . $_SESSION['login-data']['username'] . "';"
+        "SELECT settings FROM users WHERE username = '" . $_SESSION['login-data']['username'] . "';"
     )->fetch_assoc();
     return $ret_data['settings'];
 }
