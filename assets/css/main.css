@@ -10,7 +10,7 @@ button , a {
 
 .default-theme{
   background: rgb(15,19,53);
-  background: linear-gradient(0deg, rgba(15,19,53,1) 16%, rgba(26,37,137,1) 100%);
+  background: linear-gradient(0deg, rgba(26,37,137,1) 16%, rgba(15,19,53,1) 100%);
 }
 .aqua-theme{
   background: rgb(52,105,207);
