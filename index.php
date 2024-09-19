@@ -116,7 +116,7 @@ if ($_SESSION['logined'] == false) {
         </main>
     </page>
     <?php include "./assets/inc/scripts.php" ?>
-    <script src="assets/js/index.js"></script>
+    <script src="/assets/js/index.js"></script>
 </body>
 
 </html>

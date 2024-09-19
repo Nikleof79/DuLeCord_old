@@ -5,23 +5,34 @@ body{
     overflow: hidden;
     color: white;
 }
+#pc-page{
+    height: calc(100vh - 80px);
+}
 main{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.navbar{
-    padding: 0 !important;
-    height: 80px !important;
-}
-
 img{
     background-color: #fff;
     border-radius: 50%;
-
 }
 
 .left-bar , .right-bar {
     background-color: #00000050;
+}
+
+.left-bar img{
+    aspect-ratio: 1/1;
+    width: 85%;
+    height: auto;
+}
+
+.btn{
+    margin-block: .375rem;
+}
+
+.account-logo{
+    box-shadow: 0px 0px 10px black;
 }

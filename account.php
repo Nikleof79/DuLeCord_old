@@ -14,7 +14,7 @@ if (!$_SESSION['logined']) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include "./assets/inc/links.php"; ?>
-    <link rel="stylesheet" href="./assets/css/account.css">
+    <link rel="stylesheet" href="/assets/css/account.css">
 </head>
 
 <body>
@@ -39,9 +39,9 @@ if (!$_SESSION['logined']) {
     </div>
 </nav>
 <page id="pc-page" class="d-flex">
-    <div class="left-bar col-2">
+    <div class="left-bar col-2 text-center">
         <h1>Edit profile</h1>
-        <img src="/assets/img/account_logo.png" alt="">
+        <img src="/assets/img/account_logo.png" alt="" class="account-logo">
         <button class="btn btn-primary">Change Avatar</button>
         <button class="btn btn-primary">Change Display Name</button>
         <button class="btn btn-primary">Change About</button>
@@ -50,7 +50,7 @@ if (!$_SESSION['logined']) {
         <button class="btn btn-danger">Delete Account</button>
     </div>
     <main class="col-8">
-        <img src="/assets/img/account_logo.png" alt="">
+        <img src="/assets/img/account_logo.png" class="account-logo" alt="">
         <h1 id="user-name">name</h1>
         <h2 class="user-username">@<span id="user-username">username</span></h2>
         <div class="about">

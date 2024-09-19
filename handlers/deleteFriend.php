@@ -1,4 +1,5 @@
 <?php
+/*
 include '../assets/inc/mysql.php';
 
 session_start();
@@ -36,4 +37,4 @@ if (checks($_POST)){
                     VALUES ('" . $_SESSION['login-data']['username'] . "', '" . $post['target_username'] . "' );
                 ");
 }
-header('location: /friends.php');
+header('location: /friends.php'); */
