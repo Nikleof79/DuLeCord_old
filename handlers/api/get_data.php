@@ -70,7 +70,7 @@ function hasAvatar()
     $ret_data = $mysql->query("
     SELECT hasAvatar FROM users WHERE username = '" . $_SESSION['login-data']['username'] . "'
     ;")->fetch_assoc();
-    return $ret_data;
+    return $ret_data['hasAvatar'];
 }
 
 $ret_data = [

@@ -29,15 +29,7 @@ if (!$_SESSION['logined']) {
             </div>
             <div class="collapse navbar-collapse col-2" style=" justify-content: flex-end; " id="navbarSupportedContent">
                 <div class="col-2 d-flex justify-content-end pe-2">
-                    <button class="nav-round-btn">
-                        <img src="assets/img/friends_logo.png" alt="">
-                    </button>
-                    <a href="index.php" class="nav-round-btn">
-                        <img src="assets/img/chat_logo.png" alt="">
-                    </a>
-                    <a href="account.php" class="nav-round-btn">
-                        <img src="assets/img/account_logo.png" alt="">
-                    </a>
+                <?php include './assets/inc/nav-btns.php' ?>
                 </div>
             </div>
         </div>

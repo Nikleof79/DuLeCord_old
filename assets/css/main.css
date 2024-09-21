@@ -99,12 +99,15 @@ button , a {
   border: transparent;
   border-radius: 50%;
   background-color: #fff;
-  /* height: 40px;
-  width: auto; */
+  height: 50px;
+  width: auto;
   padding: 0;
 }
 
 .nav-round-btn img{
   height: 50px;
-  width: auto;
+  width: 100%;
+  object-fit: cover;
+  border: transparent;
+  border-radius: 50%;
 }

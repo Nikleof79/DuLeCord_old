@@ -37,16 +37,7 @@ if ($_SESSION['logined'] == false) {
 <!--                        <p alt="" id="intercultor-name" class="m-0">Nikleof</p>-->
                     </ul>
                     <div class="col-2 d-flex justify-content-end pe-2">
-                        <a href="friends.php" class="nav-round-btn">
-                            <img src="assets/img/friends_logo.png" alt="">
-                        </a>
-                        <button class="nav-round-btn">
-                            <img src="assets/img/chat_logo.png" alt="">
-                        </button>
-
-                        <a href="account.php" class="nav-round-btn">
-                            <img src="assets/img/account_logo.png" alt="">
-                        </a>
+                    <?php include './assets/inc/nav-btns.php' ?>
                     </div>
                 </div>
             </div>
@@ -54,7 +45,7 @@ if ($_SESSION['logined'] == false) {
         <main>
             <div id="friends" class="col-2 bg-2quater-transparent">
                 <button class="friend">
-                    <img src="assets/img/test_avatar.png" alt="" class="friend-avatar">
+                    <img src="assets/img/account_logo.png" alt="" class="friend-avatar">
                     <h1 class="friend-name">Nikleof</h1>
                 </button>
             </div>

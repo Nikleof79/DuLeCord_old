@@ -26,15 +26,7 @@ if (!$_SESSION['logined']) {
             <div class="collapse navbar-collapse col-2" style=" justify-content: flex-end; "
                 id="navbarSupportedContent">
                 <div class="col-2 d-flex justify-content-end pe-2">
-                    <button class="nav-round-btn">
-                        <img src="assets/img/friends_logo.png" alt="">
-                    </button>
-                    <a href="index.php" class="nav-round-btn">
-                        <img src="assets/img/chat_logo.png" alt="">
-                    </a>
-                    <a href="account.php" class="nav-round-btn">
-                        <img src="assets/img/account_logo.png" alt="">
-                    </a>
+                    <?php include './assets/inc/nav-btns.php' ?>
                 </div>
             </div>
         </div>
@@ -42,8 +34,8 @@ if (!$_SESSION['logined']) {
     <page id="pc-page" class="d-flex">
         <div class="left-bar col-2 text-center">
             <h1>Edit profile</h1>
-            <img src="/assets/img/account_logo.png" alt="" class="account-logo">
-            <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#AvatarModal">Change Avatar</button>
+            <img src="/assets/img/account_logo.png" alt="" class="my-avatar">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AvatarModal">Change Avatar</button>
             <button class="btn btn-primary">Change Display Name</button>
             <button class="btn btn-primary">Change About</button>
             <hr>
@@ -51,7 +43,7 @@ if (!$_SESSION['logined']) {
             <button class="btn btn-danger">Delete Account</button>
         </div>
         <main class="col-8">
-            <img src="/assets/img/account_logo.png" class="account-logo" alt="">
+            <img src="/assets/img/account_logo.png" class="my-avatar" alt="">
             <h1 id="user-name">name</h1>
             <h2 class="user-username">@<span id="user-username">username</span></h2>
             <div class="about">
@@ -72,16 +64,19 @@ if (!$_SESSION['logined']) {
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="AvatarModalLabel">Modal title</h1>
+                        <h1 class="modal-title fs-5" style="color: black; " id="AvatarModalLabel">Change Avatar</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        ...
+                    <form action="/handlers/upload_avatar.php" method="post" enctype="multipart/form-data">
+                    <div class="modal-body text-center">
+                        <input type="file" name="avatar" id="avatar-file-input" style="color: black;" value=" ">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Submit</button>
+                        <!-- <button class="btn btn-primary" type="submit">Submit</button> -->
+                         <input type="submit" value="submit" class="btn btn-primary">
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
