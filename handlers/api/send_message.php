@@ -15,6 +15,7 @@ function checks($request)
                 AND reciver = '" . $request['reciever'] . "'
             ;")->fetch_assoc();
             $ret_data = !(!$friends); // conversation to bool
+
         }
     }
     return $ret_data;
@@ -27,4 +28,16 @@ if ($checks) {
         INSERT INTO messages (body, requester, reciever) 
         VALUES ('" . $_POST['body'] . "' '" . $_SESSION['login-data']['username'] . "' , ' " . $_POST['reciever'] . "')
     ;");
+    echo json_encode(
+        [
+            ['result']=>true
+        ]
+    );
+}else{
+    echo json_encode(
+        [
+            ['result']=>false
+        ]
+    );
 }
+exit;
