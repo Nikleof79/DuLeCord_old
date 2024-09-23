@@ -21,7 +21,7 @@ function friends()
     if (is_array($friends)){
         foreach ($friends as $key => $value) {
             $friend = $mysql->query(
-                "SELECT username , name FROM users WHERE username = '" . $value . "';"
+                "SELECT username , name , hasAvatar FROM users WHERE username = '" . $value . "';"
             )->fetch_assoc();
             $ret_data[] = $friend;
         }
@@ -73,6 +73,13 @@ function hasAvatar()
     return $ret_data['hasAvatar'];
 }
 
+function messages() {
+    $mysql = new BulbaSqlConn('../../security/passsql.json');
+    $ret_data = $mysql->query("
+    SELECT body,requester FROM messages WHERE reciever = '" . $_SESSION['login-data']['username'] ."'
+    ;");
+}
+
 $ret_data = [
     'login-data'=>[
         'username'=>$_SESSION['login-data']['username'],
@@ -82,7 +89,8 @@ $ret_data = [
     'friends'=>friends(),
     'requestsFrom'=>requestsFrom(),
     'requestsFor'=>requestsFor(),
-    'settings'=>settings()
+    'settings'=>settings(),
+    'messages'=>messages()
 ];
 header('Content-type: application/json');
 echo json_encode($ret_data);

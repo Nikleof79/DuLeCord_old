@@ -6,6 +6,12 @@ if ($_SESSION['logined'] == false) {
     exit();
 }
 
+if (isset($_GET['intercultor'])) {
+    
+}else{
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -44,10 +50,10 @@ if ($_SESSION['logined'] == false) {
         </nav>
         <main>
             <div id="friends" class="col-2 bg-2quater-transparent">
-                <button class="friend">
+                <!-- <button class="friend">
                     <img src="assets/img/account_logo.png" alt="" class="friend-avatar">
                     <h1 class="friend-name">Nikleof</h1>
-                </button>
+                </button> -->
             </div>
             <div id="chatarea" class="col-8 p-2 pt-0">
                 <div id="messages">

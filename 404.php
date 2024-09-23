@@ -9,7 +9,9 @@
     ?>
     <style>
         body{
-            background-color: darkblue;
+            /* background-color: linear-gradient(
+                90deg,darkmagenta,0%,purple,100%
+            ); */
             color: white;
             display: flex;
             justify-content: center;
@@ -27,12 +29,12 @@
         }
     </style>
 </head>
-<body>
+<body class="grape-theme">
     <div>
         <img src='./assets/img/logo.png' alt="">
         <h1>404</h1>
         <h1>This page not found</h1>
-        <a href="/" class="btn">Go to index</a>
+        <a href="/" class="btn btn-primary">Go to index</a>
     </div>
 </body>
 </html>

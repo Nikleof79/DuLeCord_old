@@ -3,13 +3,15 @@ session_start();
 include '../assets/inc/resize_img.php';
 include '../assets/inc/mysql.php';
 
-$avaible_types = ['image/png', 'image/jpg', 'image/webp', 'image/jpeg'];
+$avaible_types = ['image/avif','image/svg+xml','image/png', 'image/jpg', 'image/webp', 'image/jpeg'];
 
 function checks($file)
 {
     $ret_data = false;
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['avatar'])) {
-        $ret_data = true;
+        
+            $ret_data = true;
+
     }
     return $ret_data;
 }
