@@ -18,7 +18,7 @@ function checks($file)
 
 if (checks($_FILES['avatar'])) {
     $dest = __DIR__ . '/../avatars/' . $_SESSION['login-data']['username'] . '.jpg';
-    $target_size = 64;//px
+    $target_size = 256;//px
     $resized_image = resizeImage($_FILES['avatar']['tmp_name'],$target_size,$target_size);
     imagejpeg($resized_image,$dest);
     $mysql = new BulbaSqlConn('../security/passsql.json');

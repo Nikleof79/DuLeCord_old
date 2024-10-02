@@ -8,54 +8,40 @@
 //     dark: "background: rgb(34,34,34); background: linear-gradient(0deg, rgba(34,34,34,1) 0%, rgba(17,17,17,1) 100%);",
 //   },
 // };
-$.ajax({
-  type: "POST",
-  url: "/handlers/api/get_data.php",
-  data: { target: "GetData" },
-  contentType: false,
-  success: function (response) {
-    $("body").addClass(`${JSON.parse(response.settings).theme}-theme`);
-    // $("img").each(function (index, element) {
-    //   console.log($(this).attr("src").split('/'));
+$(document).ready(function () {
+  $.ajax({
+    type: "POST",
+    url: "/handlers/api/get_data.php",
+    data: { target: "GetData" },
+    contentType: false,
+    success: function (response) {
+      $("body").addClass(`${JSON.parse(response.settings).theme}-theme`);
+      // $("img").each(function (index, element) {
+      //   console.log($(this).attr("src").split('/'));
 
-    //   if ( $(this).attr("src").split('/').indexOf('account_logo.png') > 0) {
+      //   if ( $(this).attr("src").split('/').indexOf('account_logo.png') > 0) {
 
-    //     // has account_logo.png as attr src
-    //     if (response['login-data'].hasAvatar == '1') {
-    //       $(this).attr("src","/avatars/" + response['login-data'].username + '.jpg');
-    //     }
-    //   }
-    // });
-    $(".my-avatar").each(function (index, element) {
-      if (response["login-data"].hasAvatar == "1") {
-        $(this).attr(
-          "src",
-          "/avatars/" + response["login-data"].username + ".jpg"
-        );
-      }
-    });
-    console.log(response);
-    console.log(JSON.parse(response.settings));
-    AfterAjax(response);
-
-
-    
-    $("img").each(function (index, element) {
-      console.log($(this).attr("src").split("/"));
-
-      if ($(this).attr("src").split("/").indexOf("account_logo.png") > 0) {
-        console.log(1);
-
-        // has account_logo.png as attr src
-        $(this).css({
-          "background-color": "white",
-          "border-radius": "50%",
-        });
-      }
-    });
-  },
-  error: (jqXHR, textStatus, errorThrown) => {
-    // alert(`Error: \n ${errorThrown}`);
-    console.log(`${errorThrown}`);
-  },
+      //     // has account_logo.png as attr src
+      //     if (response['login-data'].hasAvatar == '1') {
+      //       $(this).attr("src","/avatars/" + response['login-data'].username + '.jpg');
+      //     }
+      //   }
+      // });
+      $(".my-avatar").each(function (index, element) {
+        if (response["login-data"].hasAvatar == "1") {
+          $(this).attr(
+            "src",
+            "/avatars/" + response["login-data"].username + ".jpg"
+          );
+        }
+      });
+      // console.log(response);
+      // console.log(JSON.parse(response.settings));
+      AfterAjax(response);
+    },
+    error: (jqXHR, textStatus, errorThrown) => {
+      // alert(`Error: \n ${errorThrown}`);
+      console.log(`${errorThrown}`);
+    },
+  });
 });

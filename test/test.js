@@ -1,4 +1,10 @@
-let test_str = "/assets/img/account_logo.png"
-let need_str = "account_logo.png"
-
-console.log(test_str.split('/').indexOf('account_logo.png') > 0);
+let data = fetch('http://localhost/handlers/api/get_info_about.php?target=nikman79',{
+    method:'POST',
+    body:JSON.stringify({
+        target:'nikman79'
+    })
+}).then((response)=>{
+    return response.json();
+}).then(data=>{
+    console.log(data);  
+})

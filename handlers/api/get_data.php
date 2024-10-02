@@ -17,11 +17,11 @@ function friends()
     $mysql = new BulbaSqlConn('../../security/passsql.json');
     $friends = $mysql->query(
         "SELECT requester FROM friends WHERE reciver = '" . $_SESSION['login-data']['username'] . "';"
-    )->fetch_assoc();
+    )->fetch_all();
     if (is_array($friends)){
         foreach ($friends as $key => $value) {
             $friend = $mysql->query(
-                "SELECT username , name , hasAvatar FROM users WHERE username = '" . $value . "';"
+                "SELECT username , name , hasAvatar FROM users WHERE username = '" . $value[0] . "';"
             )->fetch_assoc();
             $ret_data[] = $friend;
         }
@@ -85,7 +85,7 @@ $ret_data = [
         'username'=>$_SESSION['login-data']['username'],
         'name'=>$_SESSION['login-data']['name'],
         'hasAvatar'=>hasAvatar()
-    ],
+    ],  
     'friends'=>friends(),
     'requestsFrom'=>requestsFrom(),
     'requestsFor'=>requestsFor(),
