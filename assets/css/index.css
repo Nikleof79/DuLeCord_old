@@ -74,7 +74,7 @@ main{
 }
 #textarea{
   background-color: #00000075;
-  /* height: 50px; */
+  position: relative;
   border-radius: 8px;
   padding: 2px;
 }
@@ -133,7 +133,6 @@ main{
   width: calc(100% - 80px);
   padding-top: 5px;
   padding-left: 5px;
-  position: relative;
 }
 
 #textarea-input:focus{

@@ -56,13 +56,13 @@ async function AfterAjax(response) {
 }
 
 $('#textarea-input').on('input', function () {
-  const min_height = 3;
-  const max_height = 8;
+  const min_height = 2;
+  const max_height = 7;
   let new_height = $('#textarea-input').val().split('\n').length;
-  new_height = new_height > 3 ? new_height : 3;
-  new_height = new_height < 8 ? new_height : 8;
+  new_height = new_height > min_height ? new_height : min_height;
+  new_height = new_height < max_height ? new_height : max_height;
   $('#textarea').height(`${new_height+0.3}rem`);
-  $('#textarea').css('bottom',`${new_height - 3}rem`);
+  $('#textarea').css('bottom',`${new_height - 3}rem`);  
   console.log(`${new_height}rem`);
   
 });

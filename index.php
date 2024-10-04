@@ -77,7 +77,7 @@ if (isset($_GET['intercultor'])) {
                     <!--                    </div>-->
                 </div>
                 <div id="around-textarea">
-                    <div id="textarea" style="height: 3rem;">
+                    <div id="textarea" style="height: 56.8px;">
                         <textarea name="" style="" class="textarea-element" id="textarea-input"
                             placeholder="Start Message In DuLeCord" disabled></textarea>
                         <div id="textarea-btns">
