@@ -78,8 +78,9 @@ if (isset($_GET['intercultor'])) {
                 </div>
                 <div id="around-textarea">
                     <div id="textarea" style="height: 56.8px;">
-                        <textarea name="" style="" class="textarea-element" id="textarea-input"
-                            placeholder="Start Message In DuLeCord" disabled></textarea>
+                        <!-- <form id="textarea-form"> -->
+                            <textarea name="" style="" class="textarea-element" id="textarea-input"
+                                placeholder="Start Message In DuLeCord" disabled></textarea>
                         <div id="textarea-btns">
                             <div class="btn-group dropup">
                                 <button class="textarea-btn-smile textarea-element smile-font dropdown-toggle"
@@ -93,9 +94,13 @@ if (isset($_GET['intercultor'])) {
                                     </div>
                                 </ul>
                             </div>
-                            <button class="textarea-btn-img" disabled><img src="assets/img/image_logo.png" alt="">
+                            <button class="textarea-btn-img textarea-element" id="textarea-submit" disabled>
+                                <!-- <img src="assets/img/image_logo.png" alt=""> -->
+                                <p>S</p>
+                                  
                             </button>
                         </div>
+                        <!-- </form> -->
                     </div>
                 </div>
             </div>

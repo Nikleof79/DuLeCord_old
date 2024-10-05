@@ -3,13 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Textarea Submit Example</title>
 </head>
 <body>
-    <form action="../handlers/upload_avatar.php" enctype="multipart/form-data" method="post">
-        <input type="file" name="avatar" id="">
-        <label for="">file</label>
-        <button type="submit" class="btn">submit</button>
+
+    <form id="myForm" onsubmit="handleSubmit(event)">
+        <label for="myTextarea">Enter your text:</label>
+        <textarea id="myTextarea" rows="4" cols="50" placeholder="Write something..."></textarea><br>
+        <button type="submit">Submit</button>
     </form>
+
+    <p id="output"></p>
+
+    <script>
+        // Function to handle form submission
+        function handleSubmit(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // Get the textarea value
+            var textareaValue = document.getElementById('myTextarea').value;
+
+            // Display the textarea value
+            document.getElementById('output').innerText = "You wrote: " + textareaValue;
+
+            // Optionally, you can also send the value to a server using AJAX or do other processing here
+        }
+
+        // Add event listener to the textarea for keydown
+        document.getElementById('myTextarea').addEventListener('keydown', function(event) {
+            // Check if Enter (keyCode 13) and Space (keyCode 32) are pressed simultaneously
+            if (event.key === 'Enter' && event.getModifierState('Spacebar')) {
+                event.preventDefault(); // Prevent default Enter behavior (like new line in textarea)
+                document.getElementById('myForm').submit(); // Trigger the form submit
+            }
+        });
+
+        // Add keyup listener to monitor "Space" key's modifier state
+        document.getElementById('myTextarea').addEventListener('keyup', function(event) {
+            if (event.key === ' ') {
+                event.preventDefault(); // Avoid inserting space in the textarea on this custom trigger.
+            }
+        });
+        setTimeout(() => {
+            document.getElementById('myForm').submit()
+        }, 1500);
+    </script>
+
 </body>
 </html>

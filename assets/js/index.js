@@ -16,6 +16,8 @@ const Blocks = {
   },
 };
 
+var intercultor = undefined;
+
 async function AfterAjax(response) {
   console.log(response);
 
@@ -48,6 +50,10 @@ async function AfterAjax(response) {
         if (response.hasAvatar == '1') {
           $('#intercultor-avatar').attr('src', `/avatars/${intercultor_username}.jpg`);
         }
+        intercultor = {
+          'username':intercultor_username,
+          'name':response.name
+        }
       }
     });
   } else {
@@ -56,7 +62,7 @@ async function AfterAjax(response) {
 }
 
 $('#textarea-input').on('input', function () {
-  const min_height = 2;
+  const min_height = 3;
   const max_height = 7;
   let new_height = $('#textarea-input').val().split('\n').length;
   new_height = new_height > min_height ? new_height : min_height;
@@ -65,4 +71,24 @@ $('#textarea-input').on('input', function () {
   $('#textarea').css('bottom',`${new_height - 3}rem`);  
   console.log(`${new_height}rem`);
   
+});
+
+$('#textarea-submit').click(function (e) {   
+  e.preventDefault();
+  console.log('a');
+  // const message_body = $('#textarea-input').val();
+  const send_data = {
+    'body':$('#textarea-input').val(),
+    'reciever': intercultor.username
+  }
+  $.ajax({
+    type: "POST",
+    url: "/handlers/api/send_message.php",
+    data: send_data,
+    dataType: "text",
+    success: function (data) {
+      const response = JSON.parse(data);
+      console.log(response);
+    }
+  });
 });

@@ -77,6 +77,8 @@ main{
   position: relative;
   border-radius: 8px;
   padding: 2px;
+  display: flex;
+  align-items: center;
 }
 
 #chatarea{
@@ -130,9 +132,21 @@ main{
   color: white;
   height: 100%;
   border: none;
-  width: calc(100% - 80px);
+  width: 100%;
   padding-top: 5px;
   padding-left: 5px;
+}
+
+
+#textarea-form{
+  resize: none;
+  background-color: transparent;
+  color: white;
+  height: 100%;
+  width: 100%;  
+  border: none;
+  display: flex;
+  align-items: center;
 }
 
 #textarea-input:focus{
