@@ -13,8 +13,10 @@ $(document).ready(function () {
     type: "POST",
     url: "/handlers/api/get_data.php",
     data: { target: "GetData" },
-    contentType: false,
-    success: function (response) {
+    contentType: 'text',
+    success: function (data) {
+      console.log(data);
+      const response = (data);
       $("body").addClass(`${JSON.parse(response.settings).theme}-theme`);
       // $("img").each(function (index, element) {
       //   console.log($(this).attr("src").split('/'));
@@ -39,9 +41,9 @@ $(document).ready(function () {
       // console.log(JSON.parse(response.settings));
       AfterAjax(response);
     },
-    error: (jqXHR, textStatus, errorThrown) => {
-      // alert(`Error: \n ${errorThrown}`);
-      console.log(`${errorThrown}`);
-    },
+    // error: (jqXHR, textStatus, errorThrown) => {
+    //   // alert(`Error: \n ${errorThrown}`);
+    //   console.log(`${errorThrown}`);
+    // },
   });
 });

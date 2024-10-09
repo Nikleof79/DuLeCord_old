@@ -1,9 +1,3 @@
 function html_to_string(html) {
     return html.replaceAll('>','&gt;').replaceAll('<','&lt;')
 }
-
-console.log(html_to_string(
-    `
-        <a href=''> </a>
-    `
-));

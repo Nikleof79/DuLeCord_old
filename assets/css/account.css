@@ -49,3 +49,8 @@ main img {
 
     object-fit: cover;
 }
+
+.user-username{
+  font-style: oblique;
+  color: #999;
+}

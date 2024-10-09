@@ -1,10 +1,11 @@
 function AfterAjax(data) {
     $('#user-name').text(data['login-data'].name);
+    $('#user-username').text(data['login-data'].username);
 }
 $('.changer-theme').click(function (e) { 
     e.preventDefault();
     $.ajax({
-        type: "POST",
+        type: "POST",   
         url: "/handlers/api/change_settings.php",
         data: {
                 "theme":$(this).attr('dulecord-theme')

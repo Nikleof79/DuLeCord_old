@@ -9,21 +9,25 @@ const Blocks = {
     }
     return `
         <a href='/index.php?intercultor=${username} ' class="friend">
-            <img src= "${avatar_path}"  alt="${name}" class="friend-avatar">
-            <h1 class="friend-name">${name}</h1>
+            <img src= "${avatar_path}"  alt="${html_to_string(name)}" class="friend-avatar">
+            <h1 class="friend-name">${html_to_string(name)}</h1>
         </a>        
         `;
   },
 };
 
+const isMobile = matchMedia('max-width: 1024px');
+console.log(isMobile);
+console.log(!!isMobile);
+
 var intercultor = undefined;
 
 async function AfterAjax(response) {
-  console.log(response);
+  // console.log(response);
 
   if (response.friends !== null) {
     response.friends.forEach((element) => {
-      console.log(element);
+      // console.log(element);
       $("#friends").append(
         Blocks.friend(element.username, element.name, element.hasAvatar)
       );
@@ -35,7 +39,7 @@ async function AfterAjax(response) {
     $(".textarea-element").removeAttr("disabled");
     $(".intercultor-header-data").css("display", " block");
     let intercultor_username = window.location.href.split("intercultor=")[1];
-    console.log(intercultor_username);
+    // console.log(intercultor_username);
     $.ajax({
       type: "POST",
       url: "/handlers/api/get_info_about.php",
@@ -45,19 +49,23 @@ async function AfterAjax(response) {
       dataType: "text",
       success: function (data) {
         const response = JSON.parse(data);
-        console.log(response);
+        // console.log(response);
         $('#intercultor-name').text(response.name);
         if (response.hasAvatar == '1') {
           $('#intercultor-avatar').attr('src', `/avatars/${intercultor_username}.jpg`);
         }
         intercultor = {
-          'username':intercultor_username,
-          'name':response.name
+          'username': intercultor_username,
+          'name': response.name
         }
+        get_messages(intercultor.username);
+        $("#intercultor-full-info").css('display', 'block');
+        $('#select-chat-info-text').css('display', ' none');
       }
     });
   } else {
     $(".intercultor-header-data").css("display", " none");
+    $("#intercultor-full-info").css('display', ' none');
   }
 }
 
@@ -67,28 +75,50 @@ $('#textarea-input').on('input', function () {
   let new_height = $('#textarea-input').val().split('\n').length;
   new_height = new_height > min_height ? new_height : min_height;
   new_height = new_height < max_height ? new_height : max_height;
-  $('#textarea').height(`${new_height+0.3}rem`);
-  $('#textarea').css('bottom',`${new_height - 3}rem`);  
-  console.log(`${new_height}rem`);
-  
+  $('#textarea').height(`${new_height + 0.3}rem`);
+  $('#textarea').css('bottom', `${new_height - 3}rem`);
+  // console.log(`${new_height}rem`);
+
 });
 
-$('#textarea-submit').click(function (e) {   
+$('#textarea-submit').click(function (e) {
   e.preventDefault();
   console.log('a');
   // const message_body = $('#textarea-input').val();
-  const send_data = {
-    'body':$('#textarea-input').val(),
-    'reciever': intercultor.username
+  if (intercultor !== undefined) {
+    const send_data = {
+      'body': $('#textarea-input').val(),
+      'reciever': intercultor.username
+    }
+    $.ajax({
+      type: "POST",
+      url: "/handlers/api/send_message.php",
+      data: send_data,
+      dataType: "text",
+      success: function (data) {
+        const response = JSON.parse(data);
+        // console.log(response);
+        if (response.result) {
+          get_messages(intercultor.username);
+        }
+      }
+    });
   }
+});
+
+
+function get_messages(username) {
+  let ret_data = null;
   $.ajax({
     type: "POST",
-    url: "/handlers/api/send_message.php",
-    data: send_data,
-    dataType: "text",
+    url: "/handlers/api/get_messages.php",
+    data: {
+      intercultor: username
+    },
+    dataType: "json",
     success: function (data) {
-      const response = JSON.parse(data);
-      console.log(response);
+      ret_data = data;
     }
   });
-});
+
+}

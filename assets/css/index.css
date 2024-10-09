@@ -3,8 +3,7 @@ body {
   overflow: hidden;
 }
 
-
-#pc-page {
+page {
   width: 100vw;
   height: 100vh;
 } 
@@ -70,7 +69,7 @@ main{
 #around-textarea{
   width: 100%;
   /* height: 10% , 2rem; */
-  height: clamp(10%,2rem);
+  /*height: clamp(10%,2rem);*/
 }
 #textarea{
   background-color: #00000075;
@@ -242,7 +241,12 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   font-size: 1em;
+}
+#intercultor-full-info{
+  flex-direction: column;
+  justify-content: center;
 }
 #intercultor-info-avatar{
   aspect-ratio: 1/1;
@@ -263,4 +267,20 @@ main{
   border-radius: 0;
   background-color: #00000037;
   padding: 5% 5% ;
+}
+
+.mobile-navbar{
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 60px;
+}
+
+#friends-mobile{
+  height: calc(100% - 40px);
+}
+
+.friend-mobile{
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 60px;
+  padding-inline: 20%;
+  margin-block: 30px;
 }

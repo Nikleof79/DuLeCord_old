@@ -9,7 +9,7 @@
 // if (!(explode('/',$reqUrl)[0] == 'security')) {
 //     try {
 //         include( '..' . $reqUrl);
-//     } catch (\Throwable $th) {
+//     } catch (Exception $th) {
 //         include('../404.php');
 //     }
 // }else{
