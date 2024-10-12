@@ -272,6 +272,18 @@ main{
 .mobile-navbar{
   background-color: rgba(0, 0, 0, 0.4);
   height: 60px;
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+
+.mobile-navbar .nav-round-btn img{
+  aspect-ratio: 1/1 !important;
+}
+
+.mobile-navbar .nav-round-btn{
+  margin-inline: 3.75px; 
 }
 
 #friends-mobile{
@@ -282,5 +294,5 @@ main{
   background-color: rgba(0, 0, 0, 0.4);
   height: 60px;
   padding-inline: 20%;
-  margin-block: 30px;
+  margin-bottom: 30px;
 }

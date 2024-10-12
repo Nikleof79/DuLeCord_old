@@ -133,6 +133,10 @@ button, a {
     height: 100%;
 }
 
+.my-avatar{
+    aspect-ratio: 1/1 !important;
+}
+
 /* .my-avatar{
   transition: border-radius 300ms ease-in-out;
 }

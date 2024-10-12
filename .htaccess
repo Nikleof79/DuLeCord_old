@@ -1,2 +1,3 @@
-# RewriteEngine On
+RewriteEngine On
+RewriteRule ^security/passsql.json$ - [F,L]
 # RewriteRule ^(.*)$ router/router.php [L,QSA]

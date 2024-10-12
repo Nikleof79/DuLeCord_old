@@ -16,9 +16,6 @@ const Blocks = {
   },
 };
 
-const isMobile = matchMedia('max-width: 1024px');
-console.log(isMobile);
-console.log(!!isMobile);
 
 var intercultor = undefined;
 

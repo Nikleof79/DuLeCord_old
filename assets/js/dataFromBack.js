@@ -8,6 +8,8 @@
 //     dark: "background: rgb(34,34,34); background: linear-gradient(0deg, rgba(34,34,34,1) 0%, rgba(17,17,17,1) 100%);",
 //   },
 // };
+
+const isMobile = matchMedia('(max-width: 1024px)').matches;
 $(document).ready(function () {
   $.ajax({
     type: "POST",

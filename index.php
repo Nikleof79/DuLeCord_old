@@ -112,7 +112,7 @@ if ($_SESSION['logined'] == false) {
                 </div>
             </div>
             <!-- an example of intercultor info -->
-            <h2 id="select-chat-info-text" style="align-self: center ; margin-top: 3em" class="text-center">Select a Chat</h2>
+            <h2 id="select-chat-info-text" style="align-self: center ; margin-bottom: 10em" class="text-center">Select a Chat</h2>
         </div>
     </main>
 </page>
