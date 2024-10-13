@@ -7,7 +7,7 @@ if ($_SESSION['logined'] == false) {
 }
 ?>
 
-<!--<!DOCTYPE html>-->
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -98,7 +98,7 @@ if ($_SESSION['logined'] == false) {
             </div>
         </div>
         <div id="intercultor-info" class="col-2 bg-2quater-transparent">
-            <div class="w100" id="intercultor-full-info">
+            <div class="w100" id="intercultor-full-info" style="margin-bottom: 10em;">
                 <img style="justify-self: center" src="assets/img/account_logo.png" alt="" id="intercultor-info-avatar">
                 <h4 class="text-center" id="intercultor-info-username">Nikleof</h4>
                 <h4 class='text-center' id="intercultor-info-name"><em>@n1kLe0f</em></h4>

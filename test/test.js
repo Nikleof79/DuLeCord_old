@@ -1,9 +1,9 @@
-function html_to_string(html) {
-    return html.replaceAll('>','&gt;').replaceAll('<','&lt;')
+let arr = ['a'];
+let obj = {a:'a'};
+
+function is_object(target) {
+    return typeof target === 'object' && !Array.isArray(target) && target !== null;
 }
 
-console.log(html_to_string(
-    `
-        <a href=''> </a>
-    `
-));
+console.log(is_object(arr));
+console.log(is_object(obj));

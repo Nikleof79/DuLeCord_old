@@ -14,6 +14,9 @@ const Blocks = {
         </a>        
         `;
   },
+  message: (message) =>{
+
+  }
 };
 
 
@@ -80,7 +83,15 @@ $('#textarea-input').on('input', function () {
 
 $('#textarea-submit').click(function (e) {
   e.preventDefault();
-  console.log('a');
+  $(this).attr('disabled', true);
+  const btn = this
+  const enableButton = async (btn) => {
+    setTimeout(() => {
+      $(btn).removeAttr('disabled');
+    }, 250)
+  }
+  enableButton(this);
+  console.log('submit');
   // const message_body = $('#textarea-input').val();
   if (intercultor !== undefined) {
     const send_data = {
@@ -94,7 +105,7 @@ $('#textarea-submit').click(function (e) {
       dataType: "text",
       success: function (data) {
         const response = JSON.parse(data);
-        // console.log(response);
+        console.log(response);
         if (response.result) {
           get_messages(intercultor.username);
         }
@@ -112,10 +123,17 @@ function get_messages(username) {
     data: {
       intercultor: username
     },
-    dataType: "json",
+    dataType: "text",
     success: function (data) {
-      ret_data = data;
+      ret_data = JSON.parse(data);
+      console.log(ret_data);
     }
   });
+  return ret_data;
+}
 
+function show_messages(messages) {
+  for (const message of messages) {
+    
+  }
 }

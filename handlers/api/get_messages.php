@@ -8,9 +8,10 @@ function checks($req){
     if (isset($req) && isset($req['intercultor'])) {
         if ($_SESSION['logined']) {
             $mysql = new BulbaSqlConn('../../security/passsql.json');
-            $is_friend = !(! $mysql->query("
-            SELECT reciever FROM friends WHERE requester = '" . $_SESSION['login-data']['username'] . "'
-            ")->fetch_assoc() );
+            $sql = "
+            SELECT reciver FROM friends WHERE requester = '" . $_SESSION['login-data']['username'] . "'
+            ";
+            $is_friend = !(! $mysql->query($sql)->fetch_assoc() );
             if ($is_friend) {
                 $ret_data = true;
             }
@@ -22,12 +23,13 @@ $ret_data = null;
 $checks = checks($_POST);
 if ($checks) {
     $MySql = new BulbaSqlConn('../../security/passsql.json');
-    $messages = $MySql->query("
-        SELECT * FROM messages WHERE (requester = '" . $_SESSION['login-data'] ."' AND reciever = '" . $_POST['intercultor'] . "') 
-        OR (reciever = '" . $_SESSION['login-data'] ."' AND requester = '" . $_POST['intercultor'] . "')
-    ;");
+    $sql = "
+        SELECT * FROM messages WHERE (requester = '" . $_SESSION['login-data']['username'] ."' AND reciever = '" . $_POST['intercultor'] . "') 
+        OR (reciever = '" . $_SESSION['login-data']['username'] ."' AND requester = '" . $_POST['intercultor'] . "') ORDER BY timestamp
+    ;";
+    $messages = $MySql->query($sql);
     $ret_data = [
-        'messages' => $messages->fetch_assoc()
+        'messages' => $messages->fetch_all()
     ];
 }
 

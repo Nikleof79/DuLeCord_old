@@ -27,7 +27,7 @@ $checks = checks($_POST);
 if ($checks) {
     $body = $_POST['body'];
     $MySql = new BulbaSqlConn('../../security/passsql.json');
-    $sql = "INSERT INTO messages (body,timestamp , requester, reciever) VALUES ('" . $body . "', '" . time() . "' , '" . $_SESSION['login-data']['username'] . "' , ' " . $_POST['reciever'] . "');";
+    $sql = "INSERT INTO messages (body,timestamp , requester, reciever) VALUES ('" . $body . "', '" . time() . "' , '" . $_SESSION['login-data']['username'] . "' , '" . $_POST['reciever'] . "');";
     $MySql->query($sql);
     $ret_data['result'] = true;
 }
