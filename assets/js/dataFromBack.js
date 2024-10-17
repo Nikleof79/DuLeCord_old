@@ -10,6 +10,7 @@
 // };
 
 const isMobile = matchMedia('(max-width: 1024px)').matches;
+var DataFromBackend;
 $(document).ready(function () {
   $.ajax({
     type: "POST",
@@ -17,20 +18,8 @@ $(document).ready(function () {
     data: { target: "GetData" },
     contentType: 'text',
     success: function (data) {
-      console.log(data);
       const response = (data);
       $("body").addClass(`${JSON.parse(response.settings).theme}-theme`);
-      // $("img").each(function (index, element) {
-      //   console.log($(this).attr("src").split('/'));
-
-      //   if ( $(this).attr("src").split('/').indexOf('account_logo.png') > 0) {
-
-      //     // has account_logo.png as attr src
-      //     if (response['login-data'].hasAvatar == '1') {
-      //       $(this).attr("src","/avatars/" + response['login-data'].username + '.jpg');
-      //     }
-      //   }
-      // });
       $(".my-avatar").each(function (index, element) {
         if (response["login-data"].hasAvatar == "1") {
           $(this).attr(
@@ -39,13 +28,11 @@ $(document).ready(function () {
           );
         }
       });
-      // console.log(response);
-      // console.log(JSON.parse(response.settings));
+      DataFromBackend = response
       AfterAjax(response);
     },
-    // error: (jqXHR, textStatus, errorThrown) => {
-    //   // alert(`Error: \n ${errorThrown}`);
-    //   console.log(`${errorThrown}`);
-    // },
+    error: (jqXHR, textStatus, errorThrown) => {
+      console.log(`${errorThrown}`);
+    },
   });
 });

@@ -24,115 +24,118 @@ if ($_SESSION['logined'] == false) {
 </head>
 
 <body>
-<page id="pc-page">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-3quater-transparent">
-        <div class="container-fluid ps-0">
-            <div class="col-2 d-flex justify-content-center pe-3 bg-3quater-transparent">
-                <h1 class="navbar-brand">Chats</h1>
-            </div>
-            <div class="collapse navbar-collapse col-8" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <img src="./assets/img/account_logo.png" class="intercultor-header-data" id="intercultor-avatar">
-                    <p alt="" id="intercultor-name" class="intercultor-header-data" class="m-0">Nikleof</p>
-                </ul>
-                <div class="col-2 d-flex justify-content-end pe-2">
-                    <?php include './assets/inc/nav-btns.php' ?>
+    <page id="pc-page">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-3quater-transparent">
+            <div class="container-fluid ps-0">
+                <div class="col-2 d-flex justify-content-center pe-3 bg-3quater-transparent">
+                    <h1 class="navbar-brand">Chats</h1>
+                </div>
+                <div class="collapse navbar-collapse col-8" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <img src="./assets/img/account_logo.png" class="intercultor-header-data"
+                            id="intercultor-avatar">
+                        <p alt="" id="intercultor-name" class="intercultor-header-data" class="m-0">Nikleof</p>
+                    </ul>
+                    <div class="col-2 d-flex justify-content-end pe-2">
+                        <?php include './assets/inc/nav-btns.php' ?>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
-    <main>
-        <div id="friends" class="col-2 bg-2quater-transparent">
-            <!-- <button class="friend">
+        </nav>
+        <main>
+            <div id="friends" class="col-2 bg-2quater-transparent">
+                <!-- <button class="friend">
                 <img src="assets/img/account_logo.png" alt="" class="friend-avatar">
                 <h1 class="friend-name">Nikleof</h1>
             </button> -->
-        </div>
-        <div id="chatarea" class="col-8 p-2 pt-0">
-            <div id="messages">
-                <!--                    <div class="message messageByIntercultor">-->
-                <!--                        <img src="assets/img/test_avatar2.png " alt="" class="senderAvatar">-->
-                <!--                        <div class="d-inline-block">-->
-                <!--                            <div class="d-flex align-items-center">-->
-                <!--                                <p class="messageInner">Hi nikleof</p>-->
-                <!--                            </div>-->
-                <!--                        </div>-->
-                <!--                    </div> -->
-                <!--                    <div class="message messageByMe">-->
-                <!--                        <img src="assets/img/test_avatar.png " alt="" class="senderAvatar">-->
-                <!--                        <div class="d-inline-block">-->
-                <!--                            <div class="d-flex align-items-center">-->
-                <!--                                <p class="messageInner">-->
-                <!--                                    Hi <span class="smile-font">👋</span>-->
-                <!--                                </p>-->
-                <!--                            </div>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
             </div>
-            <div id="around-textarea">
-                <div id="textarea" style="height: 56.8px;">
-                    <!-- <form id="textarea-form"> -->
-                    <textarea name="" style="" class="textarea-element" id="textarea-input"
-                              placeholder="Start Message In DuLeCord" disabled></textarea>
-                    <div id="textarea-btns">
-                        <div class="btn-group dropup">
-                            <button class="textarea-btn-smile textarea-element smile-font dropdown-toggle"
+            <div id="chatarea" class="col-8 p-2 pt-0">
+                <div id="messages">
+                    <!-- <div class="message messageByIntercultor">
+                        <img src="assets/img/test_avatar2.png " alt="" class="senderAvatar">
+                        <div class="d-inline-block">
+                            <div class="d-flex align-items-center">
+                                <p class="messageInner">Hi nikleof</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="message messageByMe">
+                        <img src="assets/img/test_avatar.png " alt="" class="senderAvatar">
+                        <div class="d-inline-block">
+                            <div class="d-flex align-items-center">
+                                <p class="messageInner">
+                                    Hi <span class="smile-font">👋</span>
+                                </p>
+                            </div>
+                        </div> -->
+                    <!-- </div> -->
+                </div>
+                <div id="around-textarea">
+                    <div id="textarea" style="height: 56.8px;">
+                        <!-- <form id="textarea-form"> -->
+                        <textarea name="" style="" class="textarea-element" id="textarea-input"
+                            placeholder="Start Message In DuLeCord" disabled></textarea>
+                        <div id="textarea-btns">
+                            <div class="btn-group dropup">
+                                <button class="textarea-btn-smile textarea-element smile-font dropdown-toggle"
                                     type="button" id="dropdownMenuButtonSmiles" data-bs-toggle="dropdown"
                                     aria-expanded="false" disabled>
-                                😎
+                                    😎
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonSmiles">
+                                    <div class="smile-font">
+                                        <li class="dropdown-item">😎</li>
+                                    </div>
+                                </ul>
+                            </div>
+                            <button class="textarea-btn-img textarea-element" id="textarea-submit" disabled>
+                                <!-- <img src="assets/img/image_logo.png" alt=""> -->
+                                <p>S</p>
+
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonSmiles">
-                                <div class="smile-font">
-                                    <li class="dropdown-item">😎</li>
-                                </div>
-                            </ul>
                         </div>
-                        <button class="textarea-btn-img textarea-element" id="textarea-submit" disabled>
-                            <!-- <img src="assets/img/image_logo.png" alt=""> -->
-                            <p>S</p>
-
-                        </button>
+                        <!-- </form> -->
                     </div>
-                    <!-- </form> -->
                 </div>
             </div>
-        </div>
-        <div id="intercultor-info" class="col-2 bg-2quater-transparent">
-            <div class="w100" id="intercultor-full-info" style="margin-bottom: 10em;">
-                <img style="justify-self: center" src="assets/img/account_logo.png" alt="" id="intercultor-info-avatar">
-                <h4 class="text-center" id="intercultor-info-username">Nikleof</h4>
-                <h4 class='text-center' id="intercultor-info-name"><em>@n1kLe0f</em></h4>
-                <div class="intercultor-info-about">
-                    <p id="intercultor-info-about">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci facilis quia enim eligendi
-                        corporis quibusdam tempora sit quod voluptatem minima. In blanditiis ea repudiandae animi
-                        ad,
-                        atque officia earum! Doloribus?
-                    </p>
+            <div id="intercultor-info" class="col-2 bg-2quater-transparent">
+                <div class="w100" id="intercultor-full-info" style="margin-bottom: 10em;">
+                    <img style="justify-self: center" src="assets/img/account_logo.png" alt=""
+                        id="intercultor-info-avatar">
+                    <h4 class="text-center" id="intercultor-info-username">Nikleof</h4>
+                    <h4 class='text-center' id="intercultor-info-name"><em>@n1kLe0f</em></h4>
+                    <div class="intercultor-info-about">
+                        <p id="intercultor-info-about">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci facilis quia enim eligendi
+                            corporis quibusdam tempora sit quod voluptatem minima. In blanditiis ea repudiandae animi
+                            ad,
+                            atque officia earum! Doloribus?
+                        </p>
+                    </div>
+                </div>
+                <!-- an example of intercultor info -->
+                <h2 id="select-chat-info-text" style="align-self: center ; margin-bottom: 10em" class="text-center">
+                    Select a Chat</h2>
+            </div>
+        </main>
+    </page>
+    <page id="mobile-page">
+        <page id="chatarea-mobile">
+
+        </page>
+        <page id="index-mobile">
+            <nav class="mobile-navbar">
+                <?php include "./assets/inc/nav-btns.php"; ?>
+            </nav>
+            <div id="friends-mobile">
+                <div class="friend-mobile">
+
                 </div>
             </div>
-            <!-- an example of intercultor info -->
-            <h2 id="select-chat-info-text" style="align-self: center ; margin-bottom: 10em" class="text-center">Select a Chat</h2>
-        </div>
-    </main>
-</page>
-<page id="mobile-page">
-    <page id="chatarea-mobile">
-
+        </page>
     </page>
-    <page id="index-mobile">
-        <nav class="mobile-navbar">
-            <?php include "./assets/inc/nav-btns.php"; ?>
-        </nav>
-        <div id="friends-mobile">
-            <div class="friend-mobile">
-
-            </div>
-        </div>
-    </page>
-</page>
-<?php include "./assets/inc/scripts.php" ?>
-<script src="/assets/js/index.js"></script>
+    <?php include "./assets/inc/scripts.php" ?>
+    <script src="/assets/js/index.js"></script>
 </body>
 
 </html>

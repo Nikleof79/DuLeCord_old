@@ -1,6 +1,5 @@
 const Blocks = {
     "friends": (username, name) => {
-        console.log(username,name)
         return `
         <div class="friend">
                 <h3 class="friend-name mb-0" id="${username}" dulecord-name="${name} "></h3>
@@ -12,7 +11,6 @@ const Blocks = {
         `;
     },
     "requestsFrom": (username, name) => {
-        console.log(username,name)
         return `
         <div class="friend requestFrom">
             <p class="friend-name" id="${username}" dulecord-name="${name} " ></p>
@@ -24,7 +22,6 @@ const Blocks = {
         `
     },
     "requestFor": (username, name) => {
-        console.log(username,name)
         return `
         <div class="friend requestFrom">
             <p class="friend-name" dulecord-name="${name}"></p>

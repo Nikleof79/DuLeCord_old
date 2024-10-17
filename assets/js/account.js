@@ -12,8 +12,6 @@ $('.changer-theme').click(function (e) {
         },
         dataType: "text",
         success: function (response) {
-            console.log(response);
-            
             if (response === 'succesfully') {
                 window.location.reload();
             }

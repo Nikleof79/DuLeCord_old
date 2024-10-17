@@ -14,8 +14,17 @@ const Blocks = {
         </a>        
         `;
   },
-  message: (message) =>{
-
+  message: (isFrom, body, avatar_path) => {
+    return `
+    <div class="message ${isFrom ? 'messageByIntercultor' : 'messageByMe'}">
+      <img src="${avatar_path} " alt="" class="senderAvatar">
+      <div class="d-inline-block">
+        <div class="d-flex align-items-center">
+          <p class="messageInner">${html_to_string(body)}</p>
+        </div>
+      </div>
+    </div>
+    `
   }
 };
 
@@ -36,6 +45,9 @@ async function AfterAjax(response) {
     $("#friends").html("YOU HAVE NO FRIENDS 😭😭😭😭♿♿♿♿");
   }
   if (window.location.href.split("").indexOf("?") > 0) {
+    console.log(`url has '?'`);
+    
+    //url has '?'
     $(".textarea-element").removeAttr("disabled");
     $(".intercultor-header-data").css("display", " block");
     let intercultor_username = window.location.href.split("intercultor=")[1];
@@ -56,7 +68,9 @@ async function AfterAjax(response) {
         }
         intercultor = {
           'username': intercultor_username,
-          'name': response.name
+          'name': response.name,
+          'hasAvatar':response.hasAvatar,
+          'path_to_avatar':`/avatars/${intercultor_username}.jpg`
         }
         get_messages(intercultor.username);
         $("#intercultor-full-info").css('display', 'block');
@@ -88,7 +102,7 @@ $('#textarea-submit').click(function (e) {
   const enableButton = async (btn) => {
     setTimeout(() => {
       $(btn).removeAttr('disabled');
-    }, 250)
+    }, 50)
   }
   enableButton(this);
   console.log('submit');
@@ -134,6 +148,8 @@ function get_messages(username) {
 
 function show_messages(messages) {
   for (const message of messages) {
-    
+    $('#messages').append(
+      Blocks.message()
+    );
   }
 }

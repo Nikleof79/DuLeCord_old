@@ -18,7 +18,7 @@ function friends()
     $friends = $mysql->query(
         "SELECT requester FROM friends WHERE reciver = '" . $_SESSION['login-data']['username'] . "';"
     )->fetch_all();
-    if (is_array($friends)){
+    if (is_array($friends)) {
         foreach ($friends as $key => $value) {
             $friend = $mysql->query(
                 "SELECT username , name , hasAvatar FROM users WHERE username = '" . $value[0] . "';"
@@ -30,13 +30,14 @@ function friends()
 
 }
 
-function requestsFrom(){
+function requestsFrom()
+{
     $ret_data = null;
     $mysql = new BulbaSqlConn('../../security/passsql.json');
     $requests = $mysql->query(
         "SELECT reciver FROM friends_requests WHERE requester = '" . $_SESSION['login-data']['username'] . "';"
-    ) -> fetch_assoc();
-    if (is_array($requests)){
+    )->fetch_assoc();
+    if (is_array($requests)) {
         foreach ($requests as $key => $value) {
             $reciver = $mysql->query(
                 "SELECT username , name FROM users WHERE username = '" . $value . "';"
@@ -47,13 +48,14 @@ function requestsFrom(){
     return $ret_data;
 }
 
-function requestsFor(){
+function requestsFor()
+{
     $ret_data = null;
     $mysql = new BulbaSqlConn('../../security/passsql.json');
     $requests = $mysql->query(
         "SELECT requester FROM friends_requests WHERE reciver = '" . $_SESSION['login-data']['username'] . "';"
     )->fetch_assoc();
-    if (is_array($requests)){
+    if (is_array($requests)) {
         foreach ($requests as $key => $value) {
             $reciver = $mysql->query(
                 "SELECT username , name FROM users WHERE username = '" . $value . "';"
@@ -73,24 +75,28 @@ function hasAvatar()
     return $ret_data['hasAvatar'];
 }
 
-function messages() {
-    $mysql = new BulbaSqlConn('../../security/passsql.json');
-    $ret_data = $mysql->query("
-    SELECT body,requester FROM messages WHERE reciever = '" . $_SESSION['login-data']['username'] ."'
-    ;");
+function checks($req) {
+    $ret_data = false;
+    if (isset($_SESSION) && isset($_SESSION['login-data'])) {
+        $ret_data = true;        
+    }
+    return $ret_data;
 }
 
-$ret_data = [
-    'login-data'=>[
-        'username'=>$_SESSION['login-data']['username'],
-        'name'=>$_SESSION['login-data']['name'],
-        'hasAvatar'=>hasAvatar()
-    ],  
-    'friends'=>friends(),
-    'requestsFrom'=>requestsFrom(),
-    'requestsFor'=>requestsFor(),
-    'settings'=>settings(),
-    'messages'=>messages()
-];
+
+$checks = checks($_REQUEST);
+if ($checks) {
+    $ret_data = [
+        'login-data' => [
+            'username' => $_SESSION['login-data']['username'],
+            'name' => $_SESSION['login-data']['name'],
+            'hasAvatar' => hasAvatar()
+        ],
+        'friends' => friends(),
+        'requestsFrom' => requestsFrom(),
+        'requestsFor' => requestsFor(),
+        'settings' => settings()
+    ];
+}
 header('Content-type: application/json');
 echo json_encode($ret_data);
