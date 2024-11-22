@@ -1,9 +1,16 @@
-let arr = ['a'];
-let obj = {a:'a'};
-
-function is_object(target) {
-    return typeof target === 'object' && !Array.isArray(target) && target !== null;
+function range(from,to) { 
+    let x = [];
+    for (let i = from; i < to; i++) {
+        x.push(i);
+    }
+    return range;
 }
 
-console.log(is_object(arr));
-console.log(is_object(obj));
+range(12,24).forEach(element => {
+    let str = (element*(element-2)).toString();
+    let x = 0;
+    str.split('',(num)=>{
+        x += Number(num);
+    })
+    
+});

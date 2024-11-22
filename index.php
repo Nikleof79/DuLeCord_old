@@ -83,8 +83,8 @@ if ($_SESSION['logined'] == false) {
                                     😎
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonSmiles">
-                                    <div class="smile-font">
-                                        <li class="dropdown-item">😎</li>
+                                    <div class="smile-font" id="DropdownMenuSmiles-body" onload="load_emojies">
+
                                     </div>
                                 </ul>
                             </div>
@@ -99,11 +99,11 @@ if ($_SESSION['logined'] == false) {
                 </div>
             </div>
             <div id="intercultor-info" class="col-2 bg-2quater-transparent">
-                <div class="w100" id="intercultor-full-info" style="margin-bottom: 10em;">
+                <div class="w100" id="intercultor-full-info" style="margin-bottom: 10em; align-items: center;">
                     <img style="justify-self: center" src="assets/img/account_logo.png" alt=""
                         id="intercultor-info-avatar">
                     <h4 class="text-center" id="intercultor-info-username">Nikleof</h4>
-                    <h4 class='text-center' id="intercultor-info-name"><em>@n1kLe0f</em></h4>
+                    <h4 class='text-center' id="intercultor-info-name">@n1kLe0f</h4>
                     <div class="intercultor-info-about">
                         <p id="intercultor-info-about">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci facilis quia enim eligendi
@@ -114,8 +114,7 @@ if ($_SESSION['logined'] == false) {
                     </div>
                 </div>
                 <!-- an example of intercultor info -->
-                <h2 id="select-chat-info-text" style="align-self: center ; margin-bottom: 10em" class="text-center">
-                    Select a Chat</h2>
+                <h2 id="select-chat-info-text" style="align-self: center ; margin-bottom: 10em" class="text-center">Select a Chat</h2>
             </div>
         </main>
     </page>
@@ -136,6 +135,42 @@ if ($_SESSION['logined'] == false) {
     </page>
     <?php include "./assets/inc/scripts.php" ?>
     <script src="/assets/js/index.js"></script>
+    <script>
+        const load_emojies = () => {
+            const blocks = {
+                "emoji": (emoji) => {
+                    return `
+                    <li><button class="dropdown-item emoji-button">${emoji}</button></li>
+                    `;
+                }
+            }
+            const emoji_ranges = [
+                [0x1F600, 0x1F64F], // Смайлики и эмоции
+                [0x1F300, 0x1F5FF], // Символы и пиктограммы
+                [0x1F680, 0x1F6FF], // Транспорт и символы
+                [0x1F700, 0x1F77F], // Алхимия
+                [0x2600, 0x26FF],   // Разное (символы)
+                [0x2700, 0x27BF],   // Дополнительные символы
+                [0x1F900, 0x1F9FF], // Дополнительные эмодзи
+                [0x1FA70, 0x1FAFF], // Дополнительные объекты
+                [0x1F1E6, 0x1F1FF], // Флаги (регионы)
+            ];
+
+            // Заполнение массива смайликов
+            emoji_ranges.forEach(([start, end]) => {
+                for (let i = start; i <= end; i++) {
+                    const emoji = String.fromCodePoint(i);
+                    console.log(i + " : " + emoji);
+                    // $("DropdownMenuSmiles-body").append(blocks.emoji());
+                }
+            });
+            $(".emoji-button").click(()=>{
+                $("textarea").val($("textarea").val() + $(this).text() );
+            });
+            
+        }
+
+    </script>
 </body>
 
 </html>

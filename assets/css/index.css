@@ -261,6 +261,7 @@ main{
 #intercultor-info-name{
   margin-top: 0;
   color: #5C5C5C;
+  font-style: italic;
 }
 #intercultor-info-about{
   border: transparent;
@@ -295,4 +296,8 @@ main{
   height: 60px;
   padding-inline: 20%;
   margin-bottom: 30px;
+}
+
+img {
+  object-fit: cover;
 }

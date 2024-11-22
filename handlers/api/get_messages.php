@@ -1,39 +1,51 @@
 <?php
-session_start();
+// session_start();
 include '../../assets/inc/mysql.php';
+include '../../assets/inc/DuLeApi.php';
 
+class Get_messages_API extends DuLeApi
+{
+    private function checks()
+    {
+        $ret_data = false;
+        $req = $_POST;
+        if (isset($req['intercultor'])) {
+            if ($_SESSION['logined']) {
 
-function checks($req){
-    $ret_data = false;
-    if (isset($req) && isset($req['intercultor'])) {
-        if ($_SESSION['logined'] && $_SERVER['REQUEST_METHOD'] == "POST") {
-            $mysql = new BulbaSqlConn('../../security/passsql.json');
-            $sql = "
-            SELECT reciver FROM friends WHERE requester = '" . $_SESSION['login-data']['username'] . "'
-            ";
-            $is_friend = !(! $mysql->query($sql)->fetch_assoc() );
-            if ($is_friend) {
-                $ret_data = true;
             }
         }
+        return $ret_data;
     }
-    return $ret_data;
-}
-$ret_data = null;
-$checks = checks($_POST);
-// $checks = true;
-// $_SESSION['login-data']['username'] = 'nikman78';
-// $_POST['intercultor'] = 'copilot';
-if ($checks) {
-    $MySql = new BulbaSqlConn('../../security/passsql.json');
-    $sql = "
-        SELECT * FROM messages WHERE (requester = '" . $_SESSION['login-data']['username'] ."' AND reciever = '" . $_POST['intercultor'] . "') 
-        OR (reciever = '" . $_SESSION['login-data']['username'] ."' AND requester = '" . $_POST['intercultor'] . "') ORDER BY timestamp
-    ;";
-    $messages = $MySql->query($sql);
-    $ret_data = $messages->fetch_all(MYSQLI_ASSOC);
-}
 
-header('Content-type: json');
-echo json_encode($ret_data);
-exit;   
+    public function main()
+    {
+        // $this->ret_data = $_POST;
+        // $this->return();
+        $req = $_POST;
+        $intercultor = $req['intercultor'];
+        $user = $_SESSION['login-data']['username'];
+        $mysql = new BulbaSqlConn('../../security/passsql.json');
+        $sql = "
+            SELECT body, timestamp, requester, reciever 	
+            FROM messages
+            WHERE (requester = '{$intercultor}' AND reciever = '{$user}')
+            OR (requester = '{$user}' AND reciever = '{$intercultor}');
+        ;";
+        $messages = $mysql->query($sql);
+
+        if ($messages) {
+            $this->ret_data = $messages->fetch_all(1);
+            $this->ret_data['status'] = true;
+        } else {
+            $this->ret_data = [
+                'status' => false
+            ];
+        }
+        $this->return();
+    }
+}
+;
+
+$api = new Get_messages_API();
+
+$api->main();

@@ -2,19 +2,17 @@
 include '../../assets/inc/mysql.php';
 session_start();
 
-function settings()
+function settings($mysql)
 {
-    $mysql = new BulbaSqlConn('../../security/passsql.json');
     $ret_data = $mysql->query(
         "SELECT settings FROM users WHERE username = '" . $_SESSION['login-data']['username'] . "';"
     )->fetch_assoc();
     return $ret_data['settings'];
 }
 
-function friends()
+function friends($mysql)
 {
     $ret_data = null;
-    $mysql = new BulbaSqlConn('../../security/passsql.json');
     $friends = $mysql->query(
         "SELECT requester FROM friends WHERE reciver = '" . $_SESSION['login-data']['username'] . "';"
     )->fetch_all();
@@ -30,10 +28,9 @@ function friends()
 
 }
 
-function requestsFrom()
+function requestsFrom($mysql)
 {
     $ret_data = null;
-    $mysql = new BulbaSqlConn('../../security/passsql.json');
     $requests = $mysql->query(
         "SELECT reciver FROM friends_requests WHERE requester = '" . $_SESSION['login-data']['username'] . "';"
     )->fetch_assoc();
@@ -48,10 +45,9 @@ function requestsFrom()
     return $ret_data;
 }
 
-function requestsFor()
+function requestsFor($mysql)
 {
     $ret_data = null;
-    $mysql = new BulbaSqlConn('../../security/passsql.json');
     $requests = $mysql->query(
         "SELECT requester FROM friends_requests WHERE reciver = '" . $_SESSION['login-data']['username'] . "';"
     )->fetch_assoc();
@@ -66,9 +62,8 @@ function requestsFor()
     return $ret_data;
 }
 
-function hasAvatar()
+function hasAvatar($mysql)
 {
-    $mysql = new BulbaSqlConn('../../security/passsql.json');
     $ret_data = $mysql->query("
     SELECT hasAvatar FROM users WHERE username = '" . $_SESSION['login-data']['username'] . "'
     ;")->fetch_assoc();
@@ -86,17 +81,19 @@ function checks($req) {
 
 $checks = checks($_REQUEST);
 if ($checks) {
+    $mysql = new BulbaSqlConn('../../security/passsql.json');
     $ret_data = [
         'login-data' => [
             'username' => $_SESSION['login-data']['username'],
             'name' => $_SESSION['login-data']['name'],
-            'hasAvatar' => hasAvatar()
+            'hasAvatar' => hasAvatar($mysql)
         ],
-        'friends' => friends(),
-        'requestsFrom' => requestsFrom(),
-        'requestsFor' => requestsFor(),
-        'settings' => settings()
+        'friends' => friends($mysql),
+        'requestsFrom' => requestsFrom($mysql),
+        'requestsFor' => requestsFor($mysql),
+        'settings' => settings($mysql)
     ];
 }
 header('Content-type: application/json');
 echo json_encode($ret_data);
+// exit;

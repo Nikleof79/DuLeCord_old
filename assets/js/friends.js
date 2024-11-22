@@ -46,7 +46,7 @@ function AfterAjax(x){
 
 function displayFriends() {
     if (dataFromBackend !== undefined) {
-        console.log(dataFromBackend);
+        // console.log(dataFromBackend);
 
         if (dataFromBackend.friends !== null && dataFromBackend.friends !== undefined) {
             dataFromBackend.friends.forEach(friend => {
@@ -60,7 +60,7 @@ function displayFriends() {
         }
 
         if (dataFromBackend.requestsFrom !== null && dataFromBackend.requestsFrom !== undefined){
-            console.log(dataFromBackend.requestsFrom)
+            // console.log(dataFromBackend.requestsFrom)
             dataFromBackend.requestsFrom.forEach(element => {
                 $('#my-req').append(Blocks.requestsFrom(element.username, element.name))
             });
@@ -78,7 +78,7 @@ function deleteFriend(button) {
         },
         dataType: "text",
         success: function (response) {
-            console.log(response);
+            // console.log(response);
             if (response === 'successfully') {
                 window.location.reload();
             } else {
@@ -98,7 +98,7 @@ function submitRequestFrom(button) {
         },
         dataType: "text",
         success: function (response) {
-            console.log(response);
+            // console.log(response);
             if (response === 'successfully') {
                 window.location.reload();
             }else{

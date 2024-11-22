@@ -1,5 +1,4 @@
 <?php
-
-$test = time();
-
-echo $test . '\n';
+if (null) {
+    echo 1;
+}

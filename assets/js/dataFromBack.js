@@ -18,6 +18,7 @@ $(document).ready(function () {
     data: { target: "GetData" },
     contentType: 'text',
     success: function (data) {
+      // console.log(data);
       const response = (data);
       $("body").addClass(`${JSON.parse(response.settings).theme}-theme`);
       $(".my-avatar").each(function (index, element) {
@@ -32,7 +33,9 @@ $(document).ready(function () {
       AfterAjax(response);
     },
     error: (jqXHR, textStatus, errorThrown) => {
-      console.log(`${errorThrown}`);
+      // // console.log(`${errorThrown}`);
+      // console.log('error');
+      
     },
   });
 });
